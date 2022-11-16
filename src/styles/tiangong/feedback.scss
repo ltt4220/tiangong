@@ -1,0 +1,229 @@
+* {
+    padding: 0;
+    margin : 0;
+}
+
+@mixin font($fontSize, $color, $fontWeight, $lineHeight) {
+    font-size  : $fontSize;
+    color      : $color;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+}
+
+#app {
+    background: linear-gradient(225deg, #121115 0%, #000000 100%);
+}
+
+.add-feedback-con {
+    padding   : 50px 36px 204px;
+    box-sizing: border-box;
+    height    : 90vh;
+    background: linear-gradient(225deg, #121115 0%, #000000 100%);
+    position  : relative;
+    overflow  : auto;
+
+    .input-info {
+        width        : 100%;
+        height       : 400px;
+        background   : rgba($color: #fff, $alpha: 0.1);
+        border-radius: 20px;
+        position     : relative;
+
+        .txt-length {
+            position   : absolute;
+            bottom     : 16px;
+            right      : 20px;
+            font-size  : 28px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color      : rgba($color: #fff, $alpha: 0.3);
+            line-height: 48px;
+        }
+
+        textarea {
+            outline         : none;
+            resize          : none;
+            border          : none;
+            width           : 100%;
+            height          : 351px;
+            font-size       : 30px;
+            font-weight     : 400;
+            background-color: transparent;
+            color           : #fff;
+            line-height     : 48px;
+            padding         : 30px 34px;
+            box-sizing      : border-box;
+
+            ::placeholder {
+                font-size  : 30px;
+                font-weight: 400;
+                color      : rgba($color: #fff, $alpha: 0.3);
+                line-height: 48px;
+            }
+        }
+    }
+
+    .upload-box {
+        height        : auto;
+        padding-top   : 50px;
+        padding-bottom: 58px;
+        margin-bottom : 22px;
+
+        .van-field__value {
+            height          : auto;
+            background-color: #fff;
+        }
+
+        .van-field__control {
+            flex-direction : column;
+            align-items    : flex-start;
+            justify-content: flex-start;
+
+            .lable-title {
+                margin-bottom: 33px;
+                font-size    : 30px;
+                font-family  : Alibaba PuHuiTi;
+                font-weight  : 400;
+                color        : #666666;
+            }
+
+            .van-uploader__wrapper {
+                >div {
+                    flex: 0 0 196px;
+
+                    &:nth-of-type(3n) {
+                        margin-right: 0;
+                    }
+
+                    &:nth-of-type(4n) {
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+
+        .van-uploader__upload {
+            width           : 196px;
+            height          : 202px;
+            background-color: #222224;
+            border-radius   : 10px;
+            margin          : 0 0 40px;
+        }
+
+        .van-uploader__preview-image {
+            width : 196px;
+            height: 202px;
+        }
+
+        .van-uploader__preview {
+            margin: 0 40px 40px 0;
+
+            &:nth-of-type(3n) {
+                margin-right: 0;
+            }
+        }
+
+        .van-uploader__wrapper--disabled {
+            opacity: 1;
+        }
+
+        .van-uploader__preview-delete {
+            width           : 60px;
+            height          : 60px;
+            display         : flex;
+            align-items     : center;
+            justify-content : center;
+            border-radius   : 50%;
+            background-color: #666;
+            top             : -10px;
+            right           : -10px;
+            text-align      : center;
+
+            .van-uploader__preview-delete-icon {
+                position : initial;
+                top      : 0px;
+                right    : 0px;
+                font-size: 30px;
+                transform: none;
+            }
+        }
+
+        .van-uploader__upload-icon {
+            color      : #666;
+            font-size  : 84px;
+            font-weight: bold;
+        }
+
+    }
+
+    .footer {
+        width          : 100%;
+        padding        : 25px 20px 27px;
+        box-sizing     : border-box;
+        width          : 100%;
+        display        : flex;
+        justify-content: space-around;
+
+        .password-login {
+            width: 250px;
+
+            button {
+                outline    : none;
+                height     : 84px;
+                line-height: 84px;
+                text-align : center;
+                width      : 100%;
+                border     : none;
+                @include font(32px, rgba(255, 255, 255, 0.8), 400, 32px);
+            }
+
+            &.zhanghao {
+                button {
+                    color          : #CAAB73;
+                    background     : url(../../assets/images/culture-gather/quxiao.png) no-repeat;
+                    background-size: contain;
+                }
+            }
+
+            &.duanxin {
+                button {
+                    color          : #fff;
+                    background     : url(../../assets/images/culture-gather/hq_btn.png) no-repeat;
+                    background-size: contain;
+
+                }
+            }
+        }
+
+    }
+
+}
+
+.info-box {
+    width      : 100%;
+    font-size  : 28px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color      : #999999;
+    line-height: 56px;
+    position   : fixed;
+    left       : 0;
+    bottom     : 0;
+    padding    : 30px 0 140px;
+    background : #000000;
+
+    p {
+        width          : 100%;
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+        letter-spacing : 2px;
+
+        i {
+            margin-right: 16px;
+            font-size   : 36px;
+        }
+
+    }
+
+}

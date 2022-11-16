@@ -1,0 +1,614 @@
+@mixin between() {
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: space-between;
+}
+
+@mixin center() {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    flex-direction : column;
+}
+
+@mixin font($fontSize, $color) {
+    font-size: $fontSize;
+    color    : $color;
+}
+
+@mixin width($width, $height) {
+    width : $width;
+    height: $height;
+}
+
+@mixin ellipsis($width) {
+    width        : $width;
+    overflow     : hidden;
+    white-space  : nowrap;
+    text-overflow: ellipsis;
+}
+
+$color:#CAA566;
+
+.culture-usercenter-box {
+    padding   : 0px 40px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    position  : relative;
+    z-index   : 1;
+
+    .pop-box {
+        background         : url(../../assets/images/culture-gather/bg_login.png) no-repeat;
+        position           : fixed;
+        left               : 0;
+        top                : 0;
+        z-index            : -2;
+        width              : 100%;
+        height             : 100%;
+        background-size    : cover;
+        background-position: center;
+
+    }
+
+    .usercenter-header {
+        padding   : 42px 0px 44px 0px;
+        box-sizing: border-box;
+        @include between;
+
+        .usercenter-header-setup {
+            display: inline-block;
+            @include width(48px, 48px);
+            font-size: 48px;
+            color    : #fff;
+        }
+
+        .usercenter-header-edit {
+            @include between();
+
+            i {
+                @include width(44px, 42px);
+                font-size  : 50px;
+                color      : #fff;
+                margin-left: 48px;
+
+                &.icon-31xiaoxi {
+                    font-size: 56px;
+                    position : relative;
+
+                    &.active::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        right   : -14px;
+                        top     : 4px;
+                        width   : 16px;
+                        height  : 16px;
+                        border-radius: 50%;
+                        background-color: #F93E5F;
+
+                    }
+                }
+            }
+        }
+    }
+
+    // 用户信息
+    .usercenter-userinfo {
+        @include center;
+        padding-bottom: 38px;
+        box-sizing    : border-box;
+
+        .userinfo-avatar-round {
+            @include width(200px, 200px);
+            position       : relative;
+            border-radius  : 50%;
+            background     : url(../../assets/images/tiangong/headbg.png) no-repeat;
+            background-size: cover;
+            @include center;
+            margin-bottom: 24px;
+        }
+
+        .cube-upload-btn,
+        .cube-upload-file {
+            @include width(160px, 160px);
+            position : absolute;
+            left     : 50%;
+            top      : 50%;
+            transform: translate(-50%, -50%);
+            z-index  : 20;
+            opacity  : 0;
+
+            .title-img,
+            .cube-upload-file-def {
+                width          : 100%;
+                height         : 100%;
+                border-radius  : 50%;
+                background     : url(../../assets/images/culture-gather/user-pic.png) center no-repeat;
+                background-size: cover;
+            }
+
+        }
+
+        .cube-upload-file {
+            opacity: 1;
+        }
+
+        .cube-upload-btn input {
+            width           : 100%;
+            height          : 100%;
+            position        : absolute;
+            top             : 0;
+            left            : 0;
+            border-radius   : 50%;
+            background-color: transparent;
+            font-size       : 0;
+
+        }
+
+        .cube-upload {
+            display: inline-block;
+        }
+
+        .cube-upload-file-def {
+            @include width(160px, 160px);
+            border-radius      : 110px;
+            background-size    : 100%;
+            background-position: 50%;
+            background-repeat  : no-repeat;
+
+            .cubeic-wrong {
+                display: none;
+            }
+        }
+
+        .cube-upload-file-progress {
+            display: none;
+        }
+
+        .userinfo-avatar {
+            @include width(160px, 160px);
+            border-radius: 50%;
+        }
+
+        .userinfo-name {
+            font-weight: 500;
+            line-height: 48px;
+            @include font(48px, #ffffff);
+            margin-bottom: 26px;
+        }
+
+        .userinfo-mycollection-number {
+            @include font(24px, rgba(119, 104, 104, 0.9));
+            font-weight  : 400;
+            line-height  : 24px;
+            margin-bottom: 26px;
+            display      : flex;
+            align-items  : center;
+
+            .user-mycollectio {
+                font-size: 28px;
+                margin   : 0 6px;
+            }
+
+            .userinfo-mycollection-amount {
+                @include font(28px, #F57F2F);
+                line-height: 24px;
+                font-weight: 500;
+                font-style : normal;
+                margin-top : 4px;
+            }
+        }
+
+        .userinfo-address {
+            @include font(28px, #ffffff);
+            font-weight    : 400;
+            line-height    : 28px;
+            display        : flex;
+            align-items    : baseline;
+            justify-content: center;
+
+            .userinfo-realname {
+                @include font(26px, #F57F2F);
+                font-weight: 400;
+                line-height: 26px;
+                margin-left: 26px;
+            }
+
+            .userinfoPass {
+                @include font(26px, $color);
+                display    : flex;
+                align-items: center;
+
+                i {
+                    width    : 28px;
+                    height   : 28px;
+                    margin   : 0 12px;
+                    font-size: 28px;
+                }
+
+                &.noPass {
+                    color: #fff;
+
+                    i {
+                        color: $color;
+                    }
+                }
+            }
+
+            .userinfo-realname-iconarrow_right {
+                margin-left: 16px;
+                font-size  : 26px;
+            }
+        }
+
+        .userinfo-priority {
+            padding        : 22px 20px 22px 32px;
+            box-sizing     : border-box;
+            width          : 100%;
+            height         : 108px;
+            background     : linear-gradient(137deg, #A16F39 0%, #E1BF81 100%);
+            border-radius  : 32px;
+            display        : flex;
+            align-items    : center;
+            justify-content: space-between;
+            margin         : 36px 0 10px;
+
+            h3 {
+                font-size  : 42px;
+                font-family: PingFangSC-Medium, PingFang SC;
+                font-weight: 500;
+                color      : #FFFFFF;
+                line-height: 58px;
+            }
+
+            span {
+                font-size  : 28px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color      : #FFFFFF;
+                line-height: 40px;
+            }
+        }
+    }
+
+    // 交易信息
+    .usercenter-menu {
+        @include between;
+        border-top   : 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding      : 32px 40px;
+        box-sizing   : border-box;
+
+        .usercenter-menu-item {
+            @include font(22px, #ffffff);
+            font-weight: 400;
+            text-align : center;
+
+            i {
+                font-size: 64px;
+            }
+        }
+
+        .usercenter-menu-item-name {
+            margin-top: 10px;
+        }
+    }
+
+    // 我的藏品
+    .usercenter-mycollection {
+        padding   : 52px 0px 98px 0px;
+        box-sizing: border-box;
+
+        .van-sticky--fixed {
+            .van-tabs__wrap {
+                .van-tabs__nav {
+                    padding         : 0 40px;
+                    box-sizing      : border-box;
+                    background-color: #222323;
+                }
+            }
+        }
+
+        .van-tabs__wrap {
+            height: 116px;
+
+            .van-tabs__nav {
+                background-color: transparent;
+
+                .van-tab {
+                    flex        : inherit;
+                    font-size   : 40px;
+                    font-family : PingFangSC-Regular, PingFang SC;
+                    font-weight : 400;
+                    color       : #999999;
+                    line-height : 56px;
+                    margin-right: 48px;
+
+                    &.van-tab--active {
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+
+        .van-tab__pane-wrapper--inactive {
+            overflow: hidden;
+        }
+
+        .mycollection-menu-list {
+            @include between;
+            width: 100%;
+
+            .mycollection-list {
+                width        : 320px;
+                height       : auto;
+                border-radius: 16px;
+                margin-bottom: 30px;
+                background   : #222;
+
+                .mycollection-list-img {
+                    @include width(100%, 320px);
+                    border-radius: 20px;
+                    position     : relative;
+
+                    .img1 {
+                        width        : 100%;
+                        height       : 100%;
+                        border-radius: 20px;
+                    }
+
+                    .img2 {
+                        position     : absolute;
+                        left         : 0px;
+                        top          : 0px;
+                        display      : inline-block;
+                        height       : 56px;
+                        line-height  : 52px;
+                        background   : #F57F2F;
+                        border-radius: 20px 4px 30px 4px;
+                        font-size    : 30px;
+                        font-family  : PingFangSC-Medium, PingFang SC;
+                        font-weight  : 500;
+                        color        : #FFFFFF;
+                        text-align   : center;
+                        padding      : 0 10px;
+                        min-width    : 72px;
+                        box-sizing   : border-box;
+                    }
+
+                    .mask-box {
+                        width        : 100%;
+                        height       : 100%;
+                        border-radius: 20px;
+                        @include center();
+                        position        : absolute;
+                        left            : 0;
+                        top             : 0;
+                        background-color: rgba($color:#000, $alpha:0.5);
+                        @include font(32px, #ffffff);
+
+                        i {
+                            font-size    : 112px;
+                            margin-bottom: 28px;
+                        }
+                    }
+                }
+
+                .mycollection-list-info {
+                    background   : #222;
+                    padding      : 0px 16px;
+                    box-sizing   : border-box;
+                    border-radius: 0px 0px 16px 16px;
+                }
+
+                .mycollection-list-title {
+                    @include font(28px, #ffffff);
+                    padding   : 20px 0px 16px 0px;
+                    box-sizing: border-box;
+                    @include ellipsis(268px);
+                }
+
+                .mycollection-list-subtitle {
+                    @include font(22px, rgba(255, 255, 255, 0.7));
+                    padding      : 16px 0px 54px 0px;
+                    box-sizing   : border-box;
+                    overflow     : hidden;
+                    white-space  : nowrap;
+                    text-overflow: ellipsis;
+                    width        : 100%;
+                }
+            }
+        }
+
+        .mycollection-noList {
+            text-align: center;
+            @include width(100%, 500px);
+            @include font(28px, #666);
+            @include center();
+
+            i {
+                font-size    : 146px;
+                color        : #666;
+                margin-bottom: 20px;
+            }
+
+            p {
+                &.align-box {
+                    text-align : justify;
+                    margin-top : 30px;
+                    line-height: 48px;
+                }
+            }
+        }
+
+        .mycollection-noList-text {
+            @include font(28px, #666);
+            @include center();
+            padding-bottom: 30px;
+        }
+    }
+
+    // 弹出框
+    .brand-desc {
+        width     : 100%;
+        position  : fixed;
+        left      : 0px;
+        padding   : 52px 0px 152px;
+        box-sizing: border-box;
+        background: rgba($color:#222, $alpha:0.95);
+        z-index   : 10;
+        bottom    : -100%;
+        box-sizing: border-box;
+
+        &.animation-desc {
+            animation: descHeight 0.5s linear both;
+
+            @keyframes descHeight {
+                from {
+                    bottom: -100%;
+                    height: 0;
+                }
+
+                to {
+                    bottom: 0px;
+                    height: 744px;
+                }
+            }
+        }
+
+        &.close-brand-desc {
+            animation: closeHeight 0.5s linear both;
+
+            @keyframes closeHeight {
+                from {
+                    bottom: 0px;
+                    height: 744px;
+
+                }
+
+                to {
+                    height: 0;
+                    bottom: -100%;
+                }
+            }
+        }
+
+        .brand-desc-header {
+            text-align   : center;
+            font-weight  : 400;
+            line-height  : 32px;
+            position     : relative;
+            margin-bottom: 32px;
+            @include font (36px, #ffffff);
+
+            .brand-desc-headerbtn {
+                position: absolute;
+                top     : 0px;
+                right   : 44px;
+
+                i {
+                    font-size: 36px;
+                }
+            }
+
+            .brand-desc-img {
+                padding-top: 6px;
+                width      : 100%;
+                @include between;
+                flex-direction: column;
+                align-items   : center;
+
+                i {
+                    width        : 112px;
+                    height       : 112px;
+                    line-height  : 112px;
+                    margin-bottom: 44px;
+                    font-size    : 112px;
+                    display      : inline-block;
+                    color        : $color;
+                }
+            }
+        }
+
+
+
+        .info-text {
+            text-align: center;
+            @include font (28px, #999);
+        }
+
+        .brand-desc-content {
+            padding      : 28px 86px;
+            box-sizing   : border-box;
+            margin-top   : 90px;
+            height       : 144px;
+            background   : #141414;
+            border-radius: 32px;
+            position     : relative;
+
+            &.brand-desc-link {
+                width : calc(100% - 80px);
+                margin: 90px auto 0;
+            }
+
+            .code {
+                word-break             : break-all;
+                font-size              : 32px;
+                font-family            : PingFangSC-Semibold, PingFang SC;
+                font-weight            : 600;
+                color                  : $color;
+                line-height            : 44px;
+                background             : linear-gradient(135deg, #E1BF81 0%, #A16F39 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .copy-view {
+                position: absolute;
+                left    : 0;
+                top     : 0;
+                width   : 100%;
+                height  : 100%;
+                opacity : 0;
+            }
+
+            &.brand-desc-cont {
+                height         : initial;
+                margin-top     : 60px;
+                min-height     : 392px;
+                box-sizing     : border-box;
+                padding        : 76px 110px;
+                background     : url(../../assets/images/tiangong/shiming.png) no-repeat center;
+                background-size: 668px 334px;
+
+                .info-name {
+                    @include between;
+                    justify-content: space-between;
+                    align-items    : center;
+
+                    .left-lable {
+                        @include font (28px, $color);
+
+                        &.lable-text {
+                            margin-top: 30px;
+                        }
+                    }
+
+                    .right-cont {
+                        @include font (32px, $color);
+
+                        i {
+                            font-size: 30px;
+                            color    : $color;
+                        }
+                    }
+                }
+
+                .card-code {
+                    margin-top: 14px;
+                    @include font (40px, $color);
+                }
+            }
+        }
+    }
+}

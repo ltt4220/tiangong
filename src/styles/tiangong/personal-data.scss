@@ -1,0 +1,473 @@
+@mixin font($fontSize, $color, $fontWeight, $lineHeight) {
+    font-size  : $fontSize;
+    color      : $color;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+}
+
+@mixin between($justifyContent) {
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: $justifyContent;
+}
+
+@mixin width($width, $height) {
+    width : $width;
+    height: $height;
+}
+
+@mixin ellipsis($width, $lineClamp) {
+    width             : $width;
+    overflow          : hidden;
+    text-overflow     : ellipsis;
+    display           : -webkit-box;
+    -webkit-line-clamp: $lineClamp;
+    -webkit-box-orient: vertical;
+    display           : -moz-box;
+    -moz-line-clamp   : $lineClamp;
+    -moz-box-orient   : vertical;
+    word-wrap         : break-word;
+    word-break        : break-all;
+    white-space       : normal;
+}
+
+img {
+    object-fit: cover;
+}
+
+$color:#CAA566;
+
+.personal-data-box {
+    width     : 100%;
+    min-height: 100vh;
+    padding   : 0px 80px;
+    box-sizing: border-box;
+
+    .usercenter-userinfo {
+        width     : 100%;
+         @include between(center);
+        padding   : 74px 0px;
+        box-sizing: border-box;
+
+        .userinfo-avatar-round {
+            @include width(276px, 276px);
+            position     : relative;
+            border-radius: 50%;
+            background   : url(../../assets/images/tiangong/headbg.png) no-repeat;
+            @include between(center);
+            background-size: 100%;
+            align-items    : center;
+            margin-bottom  : 24px;
+        }
+
+        .cube-upload-btn,
+        .cube-upload-file {
+            @include width(224px, 224px);
+            position : absolute;
+            left     : 50%;
+            top      : 50%;
+            transform: translate(-50%, -50%);
+            z-index  : 20;
+            opacity  : 0;
+
+            .title-img,
+            .cube-upload-file-def {
+                width          : 100%;
+                height         : 100%;
+                border-radius  : 50%;
+                background     : url(../../assets/images/culture-gather/user-pic.png) center no-repeat;
+                background-size: cover;
+            }
+
+        }
+
+        .cube-upload-file {
+            opacity: 1;
+        }
+
+        .cube-upload-btn input {
+            width           : 100%;
+            height          : 100%;
+            position        : absolute;
+            top             : 0;
+            left            : 0;
+            border-radius   : 50%;
+            background-color: transparent;
+            font-size       : 0;
+
+        }
+
+        .cube-upload {
+            display: inline-block;
+        }
+
+        .cube-upload-file-def {
+            @include width(224px, 224px);
+            border-radius      : 110px;
+            background-size    : 100%;
+            background-position: 50%;
+            background-repeat  : no-repeat;
+
+            .cubeic-wrong {
+                display: none;
+            }
+        }
+
+        .cube-upload-file-progress {
+            display: none;
+        }
+
+        .flex-align-center {
+            display    : flex;
+            align-items: center;
+        }
+    }
+
+    .personal-form {
+        margin-bottom: 64px;
+        width: 100%;
+        .form-item {
+            width   : 100%;
+            position: relative;
+        }
+
+        .form-item-name {
+            width     : 100%;
+            background: none;
+            outline   : none;
+            border    : none;
+            @include font(40px, #ffffff, 500, 40px);
+            padding      : 5px 0px 24px 0px;
+            border-bottom: 2px solid #979797;
+        }
+
+        .icon-close {
+            position : absolute;
+            right    : 8px;
+            bottom   : 38px;
+            font-size: 36px;
+            color    : #fff;
+        }
+    }
+
+    .personal-submit {
+        @include font(32px, #1B1B1B, 500, 32px);
+        text-align     : center;
+        height         : 82px;
+        margin-bottom  : 74px;
+        width          : 100%;
+        border-radius  : 46px;
+        line-height    : 82px;
+        background     : url(../../assets/images/tiangong/submit_btn.png) no-repeat center;
+        background-size: 564px 82px;
+
+        span {
+            font-size              : 36px;
+            font-weight            : bold;
+            color                  : #27DD81;
+            background             : linear-gradient(137deg, #f3dfb9 0%, #ffc275 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing         : 4px;
+        }
+
+        &.activeColor {
+            color: #fff;
+        }
+    }
+
+    .menu-item {
+        @include width(100%, 128px);
+        @include between(space-between);
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius   : 32px;
+        padding         : 0px 46px 0px 36px;
+        box-sizing      : border-box;
+        @include font(32px, #ffffff, 500, 44px);
+        margin-bottom: 20px;
+
+        .left-box {
+            flex: 1;
+            @include between(space-around);
+            flex-direction: column;
+
+            .menu-item-content {
+                flex: 1;
+                @include between(flex-start);
+                align-items                    : center;
+                @include font(32px, rgba($color:#fff, $alpha:0.7), 400, 44px);
+            }
+
+        }
+
+        &.phone-item {
+            @include width(100%, 172px);
+
+            .left-box {
+                @include between(center);
+
+                .menu-item-content {
+                    flex: initial;
+                }
+
+                .text-info {
+                    margin-top: 8px;
+                }
+            }
+        }
+
+        &.no-right-img {
+            .right-box {
+                flex      : 2;
+                overflow-x: auto;
+
+                .text-info {
+                    width: 100%;
+                }
+            }
+        }
+
+        .right-box {
+            flex: 1;
+            @include between(center);
+            align-items: center;
+            @include font(28px, #fff, 400, inherit);
+            overflow: hidden;
+
+            .text-info {
+                height     : 48px;
+                width      : calc(100% - 44px);
+                display    : flex;
+                align-items: baseline;
+
+                &.text-renzheng {
+                    justify-content: flex-end;
+                }
+
+                .address {
+                    height       : 48px;
+                    overflow     : hidden;
+                    white-space  : nowrap;
+                    text-overflow: ellipsis;
+                    word-break   : break-all;
+                }
+
+                i {
+                    margin-right: 18px;
+                    font-size   : 28px;
+                    color       : $color;
+                }
+            }
+
+            .icon-arrowRight {
+                margin-left: 18px;
+                font-size  : 24px;
+            }
+        }
+    }
+
+    // 弹出框
+    .brand-desc {
+        width     : 100%;
+        position  : fixed;
+        left      : 0px;
+        padding   : 52px 0px;
+        box-sizing: border-box;
+        background: rgba($color:#222, $alpha:0.95);
+        z-index   : 100;
+        bottom    : -100%;
+        box-sizing: border-box;
+
+        &.animation-desc {
+            animation: descHeight 0.5s linear both;
+
+            @keyframes descHeight {
+                from {
+                    bottom: -100%;
+                    height: 0;
+                }
+
+                to {
+                    bottom: 0px;
+                    height: 744px;
+                }
+            }
+        }
+
+        &.close-brand-desc {
+            animation: closeHeight 0.5s linear both;
+
+            @keyframes closeHeight {
+                from {
+                    bottom: 0px;
+                    height: 744px;
+
+                }
+
+                to {
+                    height: 0;
+                    bottom: -100%;
+                }
+            }
+        }
+
+        .brand-desc-header {
+            text-align   : center;
+            font-weight  : 400;
+            line-height  : 32px;
+            position     : relative;
+            margin-bottom: 32px;
+            @include font (36px, #ffffff, 500, auto);
+
+            .brand-desc-headerbtn {
+                position: absolute;
+                top     : 0px;
+                right   : 44px;
+
+                i {
+                    font-size: 36px;
+                }
+            }
+
+            .brand-desc-img {
+                padding-top: 6px;
+                width      : 100%;
+                @include between(center);
+                flex-direction: column;
+                align-items   : center;
+
+                i {
+                    width        : 112px;
+                    height       : 112px;
+                    line-height  : 112px;
+                    margin-bottom: 44px;
+                    font-size    : 112px;
+                    display      : inline-block;
+                    color        : $color;
+                }
+            }
+        }
+        .info-text {
+            text-align: center;
+            @include font (28px, #999, 400, auto);
+
+        }
+
+        .password-box {
+            width     : 100%;
+            padding   : 0 60px;
+            box-sizing: border-box;
+            @include between(flex-start);
+
+            .info-password {
+                width     : 100%;
+                height    : 114px;
+                box-sizing: border-box;
+                @include between(flex-start);
+                align-items: center;
+                @include font (32px, #fff, 400, auto);
+                border       : none;
+                border-bottom: 2px solid rgba($color:#fff, $alpha:0.3);
+
+                input {
+                    outline     : none;
+                    border      : none;
+                    // flex: 1;
+                    padding-left: 80px;
+                    box-sizing  : border-box;
+                    text-align  : left;
+                }
+            }
+
+            button {
+                margin       : 52px auto;
+                outline      : none;
+                border       : none;
+                width        : calc(100% - 30px);
+                height       : 96px;
+                background   : linear-gradient(137deg, #E1BF81 0%, #A16F39 100%);
+                border-radius: 48px;
+                opacity      : 0.4;
+                @include font (32px, #fff, 400, auto);
+
+                &.sms-button-show {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .brand-desc-content {
+            padding      : 28px 86px;
+            box-sizing   : border-box;
+            margin-top   : 90px;
+            height       : 144px;
+            background   : #141414;
+            border-radius: 32px;
+            position     : relative;
+
+            &.brand-desc-link {
+                width : calc(100% - 80px);
+                margin: 90px auto 0;
+            }
+
+            .code {
+                word-break             : break-all;
+                font-size              : 32px;
+                font-family            : PingFangSC-Semibold, PingFang SC;
+                font-weight            : 600;
+                color                  : $color;
+                line-height            : 44px;
+                background             : linear-gradient(135deg, #E1BF81 0%, #A16F39 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .copy-view {
+                position: absolute;
+                left    : 0;
+                top     : 0;
+                width   : 100%;
+                height  : 100%;
+                opacity : 0;
+            }
+
+            &.brand-desc-cont {
+                height         : initial;
+                margin-top     : 60px;
+                min-height     : 392px;
+                box-sizing     : border-box;
+                padding        : 76px 110px;
+                background     : url(../../assets/images/tiangong/shiming.png) no-repeat center;
+                background-size: 668px 334px;
+
+                .info-name {
+                    @include between(space-between);
+                    align-items: center;
+
+                    .left-lable {
+                        @include font (28px, $color, 400, auto);
+
+                        &.lable-text {
+                            margin-top: 30px;
+                        }
+                    }
+
+                    .right-cont {
+                        @include font (32px, $color, 400, auto);
+
+                        i {
+                            font-size: 30px;
+                            color    : $color;
+                        }
+                    }
+                }
+
+                .card-code {
+                    margin-top: 14px;
+                    @include font (40px, $color, 500, auto);
+                }
+            }
+        }
+    }
+
+}

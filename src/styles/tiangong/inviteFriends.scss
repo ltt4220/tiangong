@@ -1,0 +1,143 @@
+@mixin ellipsis($lineClamp) {
+    overflow          : hidden;
+    text-overflow     : ellipsis;
+    display           : -webkit-box;
+    -webkit-line-clamp: $lineClamp;
+    -webkit-box-orient: vertical;
+    display           : -moz-box;
+    -moz-line-clamp   : $lineClamp;
+    -moz-box-orient   : vertical;
+    word-wrap         : break-word;
+    word-break        : break-all;
+    white-space       : normal;
+}
+
+@mixin font($fontSize, $colors, $fontWeight, $lineHeight) {
+    font-size  : $fontSize;
+    color      : $colors;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+}
+
+@mixin flex($cont) {
+    display        : flex;
+    align-items    : center;
+    justify-content: $cont;
+}
+
+button {
+    outline         : none;
+    border          : none;
+    background-color: transparent;
+}
+
+.inviteFriends-container-tt {
+    width     : 100%;
+    padding   : 56px 40px 54px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: linear-gradient(225deg, #121115 0%, #000000 100%);
+
+    .inviteFriends-title-tt {
+        width: 100%;
+        @include flex(space-between);
+        font-size     : 36px;
+        font-family   : PingFangSC-Medium, PingFang SC;
+        font-weight   : 500;
+        color         : #FFFFFF;
+        line-height   : 32px;
+        position      : relative;
+        letter-spacing: 4px;
+
+        i {
+            color      : rgba($color: #fff, $alpha: 0.5);
+            font-weight: bold;
+            font-size  : 60px;
+        }
+
+        span {
+            color: rgba($color: #fff, $alpha: 0.9);
+
+            i {
+                font-weight: 400;
+                font-size  : 36px;
+                color      : rgba($color: #fff, $alpha: 0.9);
+            }
+        }
+    }
+
+    .inviteFriends-body-tt {
+        padding   : 54px 32px 76px 24px;
+        box-sizing: border-box;
+
+        .qrcode,
+        .invite-canvas {
+            position: absolute;
+            left    : 0px;
+            opacity : 0;
+        }
+
+        .invite-img {
+            position     : relative;
+            width        : 100%;
+            height       : auto;
+            z-index      : 100;
+            border-radius: 40px;
+        }
+    }
+
+    .inviteFriends-footer-title {
+        @include font(36px, #fff, 400, 40px);
+        text-align    : center;
+        padding-bottom: 70px;
+    }
+
+    .inviteFriends-footer-tt {
+        width: 100%;
+        @include flex(flex-start);
+
+        button {
+            flex: 1;
+            @include flex(center);
+            flex-direction: column;
+            @include font(26px, #fff, 400, 34px);
+
+            img {
+                width        : 88px;
+                height       : 88px;
+                margin-bottom: 26px;
+            }
+        }
+    }
+
+    .inviteFriends-zhezhao {
+        position        : fixed;
+        left            : 0;
+        top             : 0;
+        width           : 100%;
+        z-index         : 999;
+        width           : 100%;
+        height          : 100vh;
+        background-color: rgba($color: #000, $alpha: 0.8);
+
+        img {
+            width : 100%;
+            height: auto;
+        }
+    }
+
+    .inviteFriends-loading {
+        position        : absolute;
+        left            : 0;
+        top             : 0;
+        height          : 100vh;
+        width           : 100%;
+        background-color: #1C1C1C;
+        @include flex(center);
+
+        img {
+            width : 100%;
+            height: auto;
+        }
+    }
+}

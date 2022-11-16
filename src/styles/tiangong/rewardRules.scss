@@ -1,0 +1,62 @@
+@mixin font($fontSize, $colors, $fontWeight, $lineHeight) {
+    font-size  : $fontSize;
+    color      : $colors;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+}
+
+@mixin flex($cont) {
+    display        : flex;
+    align-items    : center;
+    justify-content: $cont;
+}
+
+.rewardRules-container-tt {
+    width     : 100%;
+    padding   : 56px 52px 54px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: linear-gradient(225deg, #121115 0%, #000000 100%);
+
+    .rewardRules-title-tt {
+        width: 100%;
+        @include flex(flex-start);
+        font-size  : 40px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        color      : #FFFFFF;
+        line-height: 56px;
+        position   : relative;
+
+        i {
+            color      : rgba($color: #fff, $alpha: 0.5);
+            font-weight: bold;
+            font-size  : 60px;
+        }
+
+        span {
+            padding-left: 158px;
+            box-sizing  : border-box;
+            color       : rgba($color: #fff, $alpha: 0.9);
+
+            i {
+                font-weight: 400;
+                font-size  : 36px;
+                color      : rgba($color: #fff, $alpha: 0.9);
+            }
+        }
+    }
+
+    ul {
+        margin-top  : 98px;
+        padding-left: 48px;
+        box-sizing  : border-box;
+
+        li {
+            margin-bottom: 60px;
+            @include font(30px, #fff, 400, 48px);
+            list-style-type: decimal;
+            padding-left: 22px;
+        }
+    }
+}

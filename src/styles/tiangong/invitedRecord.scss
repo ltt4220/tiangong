@@ -1,0 +1,135 @@
+@mixin ellipsis($lineClamp) {
+    overflow          : hidden;
+    text-overflow     : ellipsis;
+    display           : -webkit-box;
+    -webkit-line-clamp: $lineClamp;
+    -webkit-box-orient: vertical;
+    display           : -moz-box;
+    -moz-line-clamp   : $lineClamp;
+    -moz-box-orient   : vertical;
+    word-wrap         : break-word;
+    word-break        : break-all;
+    white-space       : normal;
+}
+
+@mixin font($fontSize, $colors, $fontWeight, $lineHeight) {
+    font-size  : $fontSize;
+    color      : $colors;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+}
+
+@mixin flex($cont) {
+    display        : flex;
+    align-items    : center;
+    justify-content: $cont;
+}
+
+$color:#CAA566;
+
+.invitedRecord-container-tt {
+    width     : 100%;
+    padding   : 56px 40px 54px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: linear-gradient(225deg, #121115 0%, #000000 100%);
+
+    .invitedRecord-title-tt {
+        width: 100%;
+        @include flex(space-between);
+        font-size     : 36px;
+        font-family   : PingFangSC-Medium, PingFang SC;
+        font-weight   : 500;
+        color         : #FFFFFF;
+        line-height   : 32px;
+        position      : relative;
+        letter-spacing: 4px;
+
+        i {
+            color      : rgba($color: #fff, $alpha: 0.5);
+            font-weight: bold;
+            font-size  : 60px;
+        }
+
+        span {
+            color         : rgba($color, $alpha: 1);
+            padding-bottom: 16px;
+            border-bottom : 2px solid $color;
+        }
+    }
+
+    .invitedRecord-head-tt {
+        h3 {
+            text-align: center;
+            @include font(32px, #fff, 400, 100px);
+            margin-bottom: 16px;
+
+            span {
+                @include font(72px, #fff, bold, 100px);
+            }
+        }
+
+        p {
+            text-align: center;
+            @include font(28px, #fff, 400, 32px);
+        }
+    }
+
+    .invitedRecord-body-tt {
+        padding-top: 40px;
+        background : linear-gradient(225deg, #121115 0%, #000000 100%);
+
+        .invitedRecord-stats-tt {
+            padding   : 48px 56px 32px;
+            box-sizing: border-box;
+            @include flex(space-between);
+            @include font(30px, #fff, 400, 32px);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        ul {
+            li {
+                @include flex(space-between);
+                padding      : 32px 56px;
+                box-sizing   : border-box;
+                width        : 100%;
+                border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+
+                .left-box {
+                    @include flex(space-between);
+
+                    img {
+                        width        : 84px;
+                        height       : 84px;
+                        border-radius: 50%;
+                        margin-right : 26px;
+                    }
+
+                    .foot-box {
+
+                        width: 100%;
+
+                        h3 {
+                            @include font(28px, #fff, 400, 32px);
+                        }
+
+                        p {
+                            margin-top: 10px;
+                            @include font(24px, #fff, 400, 32px);
+                        }
+                    }
+                }
+
+                .right-box {
+                    flex      : 0 0 100px;
+                    text-align: right;
+                    @include font(28px, #fff, 400, 32px);
+
+                    &.active {
+                        color: $color;
+                    }
+                }
+            }
+        }
+    }
+}

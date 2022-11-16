@@ -1,0 +1,113 @@
+@mixin font($fontSize, $color, $fontWeight, $lineHeight) {
+    font-size: $fontSize;
+    color: $color;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+}
+
+@mixin between($justifyContent, $alignItem) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justifyContent;
+    align-items: $alignItem;
+}
+
+@mixin width($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin ellipsis($width) {
+    width: $width;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+img{
+    object-fit: cover;
+}
+.register-box {
+    min-height: 100vh;
+    @include between(center, normal);
+
+    .register-img-box {
+        text-align: center;
+    }
+
+    .register-img {
+        @include width(180px, 180px);
+        border-radius: 50%;
+        margin-top: 118px;
+    }
+
+    .register-title {
+        @include font(56px, #ffffff, 400, 80px);
+        text-align: center;
+        margin-bottom: 96px;
+        margin-top: 48px;
+    }
+
+    .item-msg {
+        @include width(600px, 96px);
+        @include font(32px, #ffffff, 500, 96px);
+        @include between(center, center);
+        position: relative;
+        text-align: center;
+        background: linear-gradient(135deg, #0043FE 0%, #34F091 100%);
+        border-radius: 48px;
+        margin-bottom: 50px;
+
+        &::before {
+            content: "";
+            width: 90%;
+            height: 65px;
+            border-radius: 48px;
+            display: block;
+            position: absolute;
+            top: 32px;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            background: linear-gradient(135deg, #0043FE 0%, #34F091 100%);
+            filter: blur(24px);
+            background-size: 100%;
+            z-index: -1;
+        }
+    }
+
+    .item-password {
+        @include width(600px, 96px);
+        @include font(32px, #ffffff, 500, 44px);
+        @include between(center, center);
+        border-radius: 48px;
+        position: relative;
+        background-color: #000000;
+
+        margin-bottom: 24px;
+    }
+
+    .item-password::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        bottom: -4px;
+        left: -4px;
+        border-radius: 48px;
+        background: linear-gradient(42deg, #0043FE, #34F091);
+        z-index: -1;
+    }
+
+    .register-bgc::after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: 16px;
+        width: 266px;
+        height: 446px;
+        background: url(../../assets/images/culture-gather/login-bgc.png) no-repeat right center;
+        background-size: 100%;
+        z-index: -1;
+    }
+}

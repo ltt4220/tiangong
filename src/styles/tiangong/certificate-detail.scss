@@ -1,0 +1,254 @@
+@mixin font($fontSize, $color, $fontWeight, $lineHeight) {
+    font-size  : $fontSize;
+    color      : $color;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+}
+
+@mixin between($justifyContent) {
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: $justifyContent;
+}
+
+@mixin width($width, $height) {
+    width : $width;
+    height: $height;
+}
+
+@mixin ellipsis($width) {
+    width        : $width;
+    overflow     : hidden;
+    white-space  : nowrap;
+    text-overflow: ellipsis;
+}
+
+$color:#D8B77B;
+
+.certificate-detail-box {
+    background-color: #000000;
+    padding         : 36px 26px 38px;
+    box-sizing      : border-box;
+    min-height      : 100vh;
+
+    .border-content {
+        position  : relative;
+        min-height: 100vh;
+    }
+
+    .border-content::before {
+        content: "";
+        display: block;
+        @include width(100%, 99%);
+        position       : absolute;
+        top            : 0px;
+        left           : 0;
+        background     : url(../../assets/images/tiangong/topbg.png) no-repeat left top, url(../../assets/images/tiangong/leftbg.png) no-repeat left 90px, url(../../assets/images/tiangong/right.png) no-repeat right 90px, url(../../assets/images/tiangong/hwbg.png) repeat;
+        background-size: 100% 82px, 14px calc(100% - 162px), 14px calc(100% - 162px), auto;
+    }
+
+    .border-content::after {
+        content: "";
+        display: block;
+        @include width(100%, 100px);
+        background     : url(../../assets/images/tiangong/topbg.png) no-repeat left calc(100% - 18px);
+        background-size: 100% 82px;
+        position       : absolute;
+        bottom         : 0px;
+        left           : 0px;
+        transform      : rotateX(180deg);
+    }
+
+    .out-border {
+        @include width(100%, 100%);
+        position: relative;
+    }
+
+    .certificate-detail-banner {
+        padding   : 48px 42px 64px;
+        box-sizing: border-box;
+        text-align: center;
+
+        .icon-msg {
+            width : 200px;
+            height: 200px;
+        }
+
+        p {
+            margin-top : 16px;
+            position   : relative;
+            width      : 100%;
+            padding-top: 64px;
+            background : url(../../assets/images/tiangong/sd.png) no-repeat center top;
+
+            span {
+                font-size              : 42px;
+                font-family            : PingFangSC-Medium, PingFang SC;
+                font-weight            : 500;
+                color                  : #93A9D5;
+                line-height            : 58px;
+                background             : linear-gradient(137deg, #E1BF81 0%, #A16F39 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            &::before {
+                content : '';
+                display : block;
+                position: absolute;
+                left    : 10px;
+                top     : 92px;
+                width   : 70px;
+                border  : 1px solid rgba(225, 191, 129, 1);
+            }
+
+            &::after {
+                content : '';
+                display : block;
+                position: absolute;
+                right   : 10px;
+                top     : 92px;
+                width   : 70px;
+                border  : 1px solid rgba(225, 191, 129, 1);
+            }
+        }
+    }
+
+
+    .certificate-info-content {
+        padding   : 0px 50px 56px;
+        box-sizing: border-box;
+    }
+
+    // 产品信息
+    .certificate-detail-info {
+        @include between(space-between);
+        padding-bottom: 24px;
+        border-bottom : 2px solid rgba($color:#fff, $alpha:0.2);
+
+        .certificate-detail-title {
+            width: 100%;
+            @include font(32px, #ffffff, 500, 32px);
+            margin-left    : 8px;
+            display        : flex;
+            justify-content: space-between;
+
+            i {
+                font-size : 32px;
+                transition: 0.3s transform;
+                transform : rotateZ(0deg);
+
+                &.active-icon {
+
+                    transform: rotateZ(180deg);
+                }
+            }
+
+        }
+    }
+
+    .list-item {
+        padding-bottom: 42px;
+        box-sizing    : border-box;
+    }
+
+    .list-name {
+        @include font(28px, #666666, 500, 40px);
+        margin-bottom: 20px;
+    }
+
+    .list-content {
+        @include font(32px, #ffffff, 500, 44px);
+        word-break: break-all;
+    }
+
+    .product-list {
+        width     : 100%;
+        padding   : 40px 40px 0px 40px;
+        box-sizing: border-box;
+
+        .list-content-indent {
+            text-indent: 60px;
+
+        }
+
+        .icon-goods-certified {
+            @include width(172px, 172px);
+            position: absolute;
+            right   : 0px;
+            bottom  : 36px;
+        }
+
+        .works-desc {
+            position: relative;
+
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+
+    // 流转信息
+    .handle-list {
+        width     : 100%;
+        padding   : 40px 34px 0px 78px;
+        box-sizing: border-box;
+        position  : relative;
+
+        .item-title {
+            @include font(32px, $color, 500, 44px);
+            margin-bottom: 42px;
+            position: relative;
+            &::after{
+                content: '';
+                position       : absolute;
+                bottom: 14px;
+                left: -37px;
+                display        : flex;
+                @include width(16px, 16px);
+                border-radius: 50%;
+                background   : $color;
+                border       : 2px solid $color;
+                box-sizing: border-box;
+            }
+        }
+        .list-item{
+            &:last-of-type{
+                padding-bottom: 0;
+            }
+        }
+
+        &::before {
+            content: '';
+            position       : absolute;
+            top            : 56px;
+            left           : 48px;
+            display        : flex;
+            width: 2px;
+            height: 100%;
+            background: $color;
+        }
+    }
+    .handle-certifi-foot{
+        padding   : 26px 34px 0px 78px;
+        box-sizing: border-box;
+        .item-title{
+            @include font(32px, $color, 500, 44px);
+            margin-bottom: 42px;
+            position: relative;
+            position: relative;
+            &::after{
+                content: '';
+                position       : absolute;
+                bottom: 10px;
+                left: -37px;
+                display        : flex;
+                @include width(16px, 16px);
+                border-radius: 50%;
+                background   : $color;
+                border       : 2px solid $color;
+                box-sizing: border-box;
+            }
+        }
+    }
+}

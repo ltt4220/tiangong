@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+  <!-- uc强制竖屏 -->
+  <meta name="screen-orientation" content="portrait" />
+  <!-- QQ强制竖屏 -->
+  <meta name="x5-orientation" content="portrait" />
+  <link rel="icon" href="/logo.png" />
+  <title></title>
+  <meta name="description" content="创图天工数藏平台" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/c/font_825661_3z3fd6xz8hr.css" />
+  <script src="https://culture-shqyg.oss-cn-shanghai.aliyuncs.com/jweixin-1.6.0.js"></script>
+  <script src="/static/js/marmoset.js"></script>
+  <script src="/static/js/NativeShare.js"></script>
+  <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+  <script src="https://static.runoob.com/assets/canvas2image/canvas2image.js"></script>
+  <!-- <script src="https://culturecloud.oss-cn-hangzhou.aliyuncs.com/app/js/ct_app_api_v2.0.0.js"></script> -->
+  <!-- <script src="https://viewer.marmoset.co/main/marmoset.js"></script> -->
+  
+</head>
+<!--移动端版本兼容 -->
+<script type="text/javascript">
+  (function () {
+    var phoneWidth = parseInt(window.screen.width);
+    var phoneScale = phoneWidth / 750;
+    var ua = navigator.userAgent; //浏览器类型
+    if (/Android (\d+\.\d+)/.test(ua)) { //判断是否是安卓系统
+      var version = parseFloat(RegExp.$1); //安卓系统的版本号
+      if (version > 2.3) {
+        document.write('<meta name="viewport" content="width=750, minimum-scale = ' + phoneScale +
+          ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+      } else {
+        document.write('<meta name="viewport" content="width=750, target-densitydpi=device-dpi">');
+      }
+    } else {
+      document.write(
+        '<meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">'
+      );
+    }
+
+  }());
+</script>
+
+<body>
+  <noscript>
+    <strong>
+      We're sorry but ct_serve_temp doesn't work properly without JavaScript enabled. Please enable it to continue.
+    </strong>
+    <strong id="devOps">dev-ops-loaded</strong>
+  </noscript>
+  <div id="app"></div>
+</body>
+</html>

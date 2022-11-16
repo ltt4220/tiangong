@@ -1,0 +1,109 @@
+img {
+  object-fit: cover;
+}
+
+.register-box {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: normal;
+}
+
+.register-box .register-img-box {
+  text-align: center;
+}
+
+.register-box .register-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin-top: 118px;
+}
+
+.register-box .register-title {
+  font-size: 56px;
+  color: #ffffff;
+  font-weight: 400;
+  line-height: 80px;
+  text-align: center;
+  margin-bottom: 96px;
+  margin-top: 48px;
+}
+
+.register-box .item-msg {
+  width: 600px;
+  height: 96px;
+  font-size: 32px;
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 96px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  background: linear-gradient(135deg, #0043FE 0%, #34F091 100%);
+  border-radius: 48px;
+  margin-bottom: 50px;
+}
+
+.register-box .item-msg::before {
+  content: "";
+  width: 90%;
+  height: 65px;
+  border-radius: 48px;
+  display: block;
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  background: linear-gradient(135deg, #0043FE 0%, #34F091 100%);
+  filter: blur(24px);
+  background-size: 100%;
+  z-index: -1;
+}
+
+.register-box .item-password {
+  width: 600px;
+  height: 96px;
+  font-size: 32px;
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 48px;
+  position: relative;
+  background-color: #000000;
+  margin-bottom: 24px;
+}
+
+.register-box .item-password::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  border-radius: 48px;
+  background: linear-gradient(42deg, #0043FE, #34F091);
+  z-index: -1;
+}
+
+.register-box .register-bgc::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 16px;
+  width: 266px;
+  height: 446px;
+  background: url(../../assets/images/culture-gather/login-bgc.png) no-repeat right center;
+  background-size: 100%;
+  z-index: -1;
+}

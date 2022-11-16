@@ -1,0 +1,191 @@
+@mixin font($fontSize, $color, $fontWeight, $lineHeight) {
+    font-size  : $fontSize;
+    color      : $color;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+}
+
+@mixin between($justifyContent, $alignItem) {
+    display        : flex;
+    justify-content: $justifyContent;
+    align-items    : $alignItem;
+}
+
+@mixin width($width, $height) {
+    width : $width;
+    height: $height;
+}
+
+@mixin ellipsis($width) {
+    width        : $width;
+    overflow     : hidden;
+    white-space  : nowrap;
+    text-overflow: ellipsis;
+}
+
+.creat-blockchain-box {
+    height         : 100vh;
+    padding        : 80px 60px;
+    box-sizing     : border-box;
+    background     : url(../../assets/images/culture-gather/bg_login.png) no-repeat;
+    width          : 100%;
+    position       : relative;
+    background-size: cover;
+
+    .creatBlockchain-box {
+        width         : 100%;
+        display       : flex;
+        align-items   : center;
+        flex-direction: column;
+    }
+
+    .creat-blockchain-header {
+        margin-bottom: 112px;
+
+        .blockchain-header-title {
+            @include font(56px, #ffffff, 400, 56px);
+            margin-bottom: 32px;
+        }
+
+        .blockchain-header-tip {
+            max-width: 604px;
+            @include font(26px, rgba(255, 255, 255, 0.5), 400, 36px);
+        }
+    }
+
+    .blockchain-form {
+        margin-bottom: 80px;
+        width: 100%;
+        .form-item {
+            @include between(flex-start,center );
+            position     : relative;
+            padding      : 28px 0px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            box-sizing   : border-box;
+            width        : 100%;
+
+        }
+
+        .input-text {
+            position: relative;
+        }
+
+        .get-code {
+            position  : absolute;
+            right     : 0px;
+            bottom    : 10px;
+            text-align: center;
+            padding   : 24px 32px;
+            box-sizing: border-box;
+            @include font(28px, #ffffff, 500, 28px);
+            background   : linear-gradient(135deg, #0043FE 0%, #34F091 100%);
+            border-radius: 38px;
+        }
+
+        .form-item-label {
+            flex: 0 0 200px;
+            @include font(32px, #ffffff, 500, 51px);
+
+        }
+
+        .input-text {
+            width       : 100%;
+            padding-left: 44px;
+            box-sizing  : border-box;
+            @include font(36px, #fff, 500, 32px);
+            position: relative;
+
+        }
+
+        ::placeholder {
+            font-size: 32px;
+            color    : rgba(255, 255, 255, 0.3);
+        }
+    }
+
+    .personal-submit {
+        @include font(32px, #1B1B1B, 500, 32px);
+        text-align     : center;
+        position       : relative;
+        height         : 82px;
+        line-height    : 82px;
+        margin-bottom  : 66px;
+        background     : url(../../assets/images/tiangong/submit_btn.png) no-repeat center;
+        background-size: 564px 82px;
+        width          : 564px;
+        height         : 82px;
+
+        span {
+            font-size              : 36px;
+            font-weight            : bold;
+            color                  : #27DD81;
+            background             : linear-gradient(137deg, #f3dfb9 0%, #ffc275 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing         : 4px;
+        }
+
+        &.password-button {
+            background   : linear-gradient(137deg, #E1BF81 0%, #A16F39 100%);
+            border-radius: 48px;
+            opacity      : 0.4;
+            height       : 96px;
+            line-height  : 96px;
+            &.sms-button-show {
+                opacity: 1;
+                color  : #fff;
+            }
+        }
+
+        &.sms-button-show {
+            opacity: 1;
+            color  : #fff;
+        }
+
+        &.personal-submit-skip {
+            height       : 96px;
+            line-height  : 96px;
+            background   : transparent;
+            font-size    : 32px;
+            font-family  : PingFangSC-Medium, PingFang SC;
+            font-weight  : 500;
+            color        : #CDAE75;
+            border-radius: 48px;
+            border       : 2px solid #E1BF81;
+        }
+    }
+
+    .van-checkbox {
+        height         : 56px;
+        font-size      : 26px;
+        font-family    : PingFangSC-Regular, PingFang SC;
+        font-weight    : 400;
+        color          : #666666;
+        line-height    : 40px;
+        justify-content: center;
+
+        .van-checkbox__icon {
+            &.van-checkbox__icon--checked {
+                .van-icon {
+                    color           : #fff;
+                    background-color: #27DD81;
+                    border          : 1px solid #fff;
+                }
+            }
+        }
+
+        .van-checkbox__label {
+            margin-left: 16px;
+            color      : #666;
+
+            span {
+                color: #fff;
+            }
+        }
+
+        .van-icon {
+            border: 3px solid #fff;
+        }
+    }
+
+}

@@ -1,0 +1,213 @@
+@mixin between() {
+    display        : flex;
+    justify-content: space-between;
+}
+
+@mixin center() {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    flex-direction : column;
+}
+
+@mixin font($fontSize, $color, $weight, $height) {
+    font-size  : $fontSize;
+    color      : $color;
+    font-weight: $weight;
+    line-height: $height;
+}
+
+@mixin width($width, $height) {
+    width : $width;
+    height: $height;
+}
+
+@mixin ellipsis($width) {
+    width        : $width;
+    overflow     : hidden;
+    white-space  : nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin padding($top, $right, $bottom, $left) {
+    padding   : $top $right $bottom $left;
+    box-sizing: border-box;
+}
+
+$color:#D0B076;
+
+.culture-historyOrder-box {
+    padding   : 50px 36px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: #000000;
+
+    .load-all-box {
+        padding-top: 32px;
+        font-size  : 24px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color      : #999999;
+        line-height: 34px;
+        text-align : center;
+    }
+
+    .history-order-menuItem {
+        @include width(100%, auto);
+        background   : rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        margin-bottom: 40px;
+    }
+
+    .order-menuItem-top {
+        @include between;
+        @include padding(20px, 44px, 14px, 18px);
+
+        .menuItem-top-dealDate {
+            @include font(28px, #999999, 400, 40px);
+        }
+
+        .menuItem-top-status {
+            @include font(32px, $color, 400, 44px);
+            &.green-status{
+                color: #56C063;
+            }
+        }
+    }
+
+    .order-menuItem-content {
+        .order-menuItem-border {
+            display: flex;
+            @include padding(22px, 44px, 34px, 36px);
+            border-top   : 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-sizing   : border-box;
+        }
+
+        .menuItem-content-img {
+            @include width(160px, 172px);
+            background   : #8B8B8B;
+            border-radius: 16px;
+        }
+
+        .menuItem-content-right {
+            margin-left: 32px
+        }
+
+        .menuItem-content-title {
+            @include font(32px, rgba(255, 255, 255, 1), 600, 60px);
+            @include ellipsis(370px);
+        }
+
+        .menuItem-content-only {
+            @include font(32px, rgba(153, 153, 153, 1), 400, 60px);
+
+            &.only-price {
+                color: #fff;
+            }
+        }
+        .menuItem-content-number{
+            position: relative;
+            height: 40px;
+            font-size: 22px;
+            color: #ffffff;
+            font-weight: 500;
+            line-height: 41px;
+            background: url(../../assets/images/tiangong/bg1.png) no-repeat;
+            background-size: calc(100% - 80px) 40px;
+            padding: 0px 24px;
+            box-sizing: border-box;
+            margin-top: 16px;
+        }
+    }
+
+    .order-menuItem-bottom {
+        @include padding(24px, 44px, 50px, 46px);
+
+        .menuItem-bottom-info {
+            width: 100%;
+            @include between;
+            word-break: break-all;
+            flex-wrap: wrap;
+            &.menuItem-bottom-haxi {
+                width             : 100%;
+                display           : block;
+                max-height     : 360px;
+                overflow          : hidden;
+                border-radius     : 16px;
+                margin-bottom     : 20px;
+                .menuItem-bottom-left {
+                    width          : 100%;
+                    display        : flex;
+                    align-items    : center;
+                    justify-content: space-between;
+                    height         : 80px;
+
+                    i {
+                        font-size: 32px;
+                        transition: 0.3s transform;
+                        transform : rotateZ(0deg);
+        
+                        &.active-icon {
+                            transform: rotateZ(180deg);
+                        }
+        
+                    }
+                }
+
+                .menuItem-bottom-right {
+                    background   : #000000;
+                    border-radius: 16px;
+                    padding      : 22px 36px;
+                    box-sizing   : border-box;
+                    margin-top   : 10px;
+                    height: calc(100% - 80px);
+                    overflow-y: auto;
+                    span {
+                        font-size  : 32px;
+                        font-family: PingFangSC-Medium, PingFang SC;
+                        font-weight: 400;
+                        color      : $color;
+                        line-height: 44px;
+                        display    : inline-block;
+                    }
+                }
+
+                &.warp-menuItem-box {
+                    max-height: 80px;
+                }
+                &.nowarp-menuItem-box{
+                    height: 360px;
+                }
+            }
+        }
+
+        .menuItem-bottom-left {
+            @include font(32px, #ffffff, 500, initial);
+
+        }
+
+        .menuItem-bottom-right {
+            @include font(32px, #ffffff, 400, 80px);
+        }
+
+
+    }
+}
+
+.mycollection-noList {
+    text-align: center;
+    @include width(100%, 80vh);
+    font-size      : 28px;
+    color          : #666;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    flex-direction : column;
+
+    i {
+        font-size    : 146px;
+        color        : #666;
+        margin-bottom: 20px;
+    }
+}

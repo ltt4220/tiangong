@@ -1,0 +1,175 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.submit-order-box {
+  width: 100%;
+  min-height: 100vh;
+  background: #000000;
+  padding: 56px 34px;
+  box-sizing: border-box;
+}
+
+.submit-order-box .head-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.submit-order-box .head-box .imgs {
+  width: 246px;
+  height: 264px;
+  box-sizing: border-box;
+  background: #8B8B8B;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.submit-order-box .head-box .title {
+  margin-top: 36px;
+  width: 100%;
+  height: 60px;
+  font-size: 32px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #FFFFFF;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+  text-align: center;
+}
+
+.submit-order-box .head-box .label {
+  width: 100%;
+  height: 60px;
+  font-size: 32px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #999;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+  text-align: center;
+}
+
+.submit-order-box .body-box {
+  margin-top: 28px;
+  height: 484px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 64px 44px 64px 46px;
+  box-sizing: border-box;
+}
+
+.submit-order-box .body-box li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.submit-order-box .body-box li.item-box {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.submit-order-box .body-box li:last-of-type {
+  font-size: 28px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FF8628;
+  line-height: 40px;
+  justify-content: flex-start;
+}
+
+.submit-order-box .body-box li .label {
+  font-size: 32px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  flex: 80px;
+}
+
+.submit-order-box .body-box li .info-box {
+  font-size: 44px;
+  font-weight: bold;
+  font-family: PingFangSC-Regular, PingFang SC;
+  color: #FFFFFF;
+}
+
+.submit-order-box .body-box li .info-box .van-stepper {
+  width: 216px;
+  height: 72px;
+  background: #333333;
+  border-radius: 10px;
+  border: 2px solid #666666;
+  box-sizing: border-box;
+}
+
+.submit-order-box .body-box li .info-box .van-stepper .van-stepper__input {
+  width: 108px;
+  height: 100%;
+  background: #222222;
+  border-left: 2px solid #666666;
+  border-right: 2px solid #666666;
+  color: #fff;
+  font-size: 44px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+}
+
+.submit-order-box .body-box li .info-box .van-stepper .van-stepper__minus,
+.submit-order-box .body-box li .info-box .van-stepper .van-stepper__plus {
+  color: #fff;
+  width: 50px;
+  height: 100%;
+  background-color: transparent;
+}
+
+.submit-order-box .body-box li .info-box .van-stepper .van-stepper__minus::before,
+.submit-order-box .body-box li .info-box .van-stepper .van-stepper__plus::before {
+  height: 2px;
+}
+
+.submit-order-box .body-box li .info-box .van-stepper .van-stepper__minus::after,
+.submit-order-box .body-box li .info-box .van-stepper .van-stepper__plus::after {
+  height: 38%;
+  width: 2px;
+}
+
+.submit-order-box .body-box li .info-box .van-stepper .van-stepper__minus.van-stepper__minus--disabled,
+.submit-order-box .body-box li .info-box .van-stepper .van-stepper__plus.van-stepper__minus--disabled {
+  color: #B1B1B1;
+}
+
+.submit-order-box .body-box li .info-box .price {
+  font-size: 32px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.submit-order-box .body-box li .info-box.active-box {
+  color: #E1BF81;
+}
+
+.submit-order-box .footer-box {
+  margin-top: 76px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-order-box .footer-box button {
+  outline: none;
+  border: none;
+  height: 80px;
+  width: 408px;
+  color: #fff;
+  font-size: 32px;
+  background: url(../../assets/images/tiangong/goback.png) no-repeat;
+}

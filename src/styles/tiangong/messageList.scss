@@ -1,0 +1,109 @@
+@mixin ellipsis($lineClamp) {
+    overflow          : hidden;
+    text-overflow     : ellipsis;
+    display           : -webkit-box;
+    -webkit-line-clamp: $lineClamp;
+    -webkit-box-orient: vertical;
+    display           : -moz-box;
+    -moz-line-clamp   : $lineClamp;
+    -moz-box-orient   : vertical;
+    word-wrap         : break-word;
+    word-break        : break-all;
+    white-space       : normal;
+}
+
+@mixin font($fontSize, $colors, $fontWeight, $lineHeight) {
+    font-size  : $fontSize;
+    color      : $colors;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+}
+
+@mixin flex($cont) {
+    display        : flex;
+    align-items    : center;
+    justify-content: $cont;
+}
+
+$color:#F93E5F;
+
+.messageList-container-tt {
+    width     : 100%;
+    padding   : 56px 36px 54px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background: linear-gradient(225deg, #121115 0%, #000000 100%);
+
+    .messageList-title-tt {
+        width: 100%;
+        @include flex(space-between);
+        font-size     : 36px;
+        font-family   : PingFangSC-Medium, PingFang SC;
+        font-weight   : 500;
+        color         : #FFFFFF;
+        line-height   : 32px;
+        position      : relative;
+        letter-spacing: 4px;
+
+
+
+        span {
+            @include flex(center);
+            @include font(32px, #fff, 400, 44px);
+
+            .icon-ARROW-left-copy {
+                color       : rgba($color: #fff, $alpha: 0.5);
+                font-weight : bold;
+                font-size   : 60px;
+                margin-right: 20px;
+            }
+
+            i {
+                color      : $color;
+                font-style : normal;
+                font-weight: bold;
+                font-size  : 36px;
+                margin     : 0 10px;
+            }
+        }
+
+        .icon-shanchu-yichu-02 {
+            font-size: 45px;
+        }
+    }
+
+    ul {
+        margin-top: 50px;
+
+        li {
+            padding      : 30px 22px 20px;
+            box-sizing   : border-box;
+            background   : #222222;
+            border-radius: 16px;
+
+            p {
+                width: 100%;
+                @include flex(space-between);
+                @include font(24px, #fff, 400, 32px);
+
+                &.footer-text {
+                    @include font(26px, #fff, 400, 36px);
+                    padding-top: 20px;
+                    border-top : 2px solid rgba(255, 255, 255, 0.1);
+
+                    i {
+                        font-size: 32px;
+                        color: rgba($color: #fff, $alpha: 0.7);
+                    }
+                }
+            }
+
+            h3 {
+                margin: 20px 0 24px;
+                width : 100%;
+                @include font(32px, #fff, 400, 52px);
+                @include ellipsis(2);
+            }
+        }
+    }
+}

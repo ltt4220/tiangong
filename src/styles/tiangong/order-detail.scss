@@ -1,0 +1,204 @@
+@mixin font($fontSize, $color, $fontWeight, $lineHeight) {
+    font-size  : $fontSize;
+    color      : $color;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+}
+
+@mixin between($justifyContent) {
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: $justifyContent;
+}
+
+@mixin width($width, $height) {
+    width : $width;
+    height: $height;
+}
+
+@mixin ellipsis($width) {
+    width     : $width;
+    overflow  : hidden;
+    word-break: break-all;
+}
+
+.culture-orderDetail-box::before {
+    content         : "";
+    background-color: #000000;
+    *zoom           : 1;
+    z-index         : -1;
+    background-size : 100%;
+    width           : 100%;
+    height          : 100%;
+    position        : absolute;
+    top             : 0px;
+    left            : 0px;
+}
+
+.culture-orderDetail-box {
+    position  : relative;
+    padding   : 0px 36px;
+    box-sizing: border-box;
+    min-height: 100vh;
+
+    .loading-box-ordercont {
+        width          : 100%;
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+        height         : 100vh;
+
+        img {
+            display: block;
+            width : 150px;
+            height: auto;
+        }
+    }
+
+    .order-detail-status {
+        text-align: center;
+        padding   : 84px 0px 90px;
+        box-sizing: border-box;
+        @include between(center);
+        @include font(40px, #ffffff, 400, 32px);
+
+        .status-img {
+            display      : inline-block;
+            width        : 112px;
+            height       : 112px;
+            line-height  : 112px;
+            font-size    : 112px;
+            color        : #D8B77B;
+            margin-bottom: 66px;
+
+            &.icon-chahao {
+                color: #F93E5F;
+            }
+        }
+
+        .countdown {
+            margin-top: 30px;
+            @include font(28px, #ffffff, 400, 24px);
+
+            span {
+                color      : #FF8628;
+                font-size  : 36px;
+                margin-left: 20px;
+            }
+        }
+    }
+
+    .order-detail-list {
+        width        : 680px;
+        background   : rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding      : 24px 44px 44px 36px;
+        box-sizing   : border-box;
+
+        .order-detail-goods {
+            display       : flex;
+            padding-bottom: 34px;
+            border-bottom : 2px solid rgba(255, 255, 255, 0.1);
+            box-sizing    : border-box;
+
+            .goods-img {
+                width        : 160px;
+                height       : 172px;
+                border-radius: 16px;
+                margin-right : 32px;
+                border       : 1px solid #fff;
+                box-sizing   : border-box;
+            }
+
+            .orderList-info-title {
+                flex: auto;
+                @include ellipsis(100%);
+                @include font(32px, #ffffff, 600, 60px);
+                max-height: 120px;
+            }
+
+            .orderList-info-subTitle {
+                @include ellipsis(100%);
+                @include font(28px, #999999, 600, 60px)
+            }
+        }
+
+        .order-detail-menu {
+            padding-top: 24px;
+            box-sizing : border-box;
+
+            .order-detail-item {
+                @include between(space-between);
+                @include font(32px, #ffffff, 500, 80px);
+                word-break: break-all;
+                .stateActie {
+                    color    : $color;
+                    font-size: 44px;
+                }
+
+                .order-detail-oddNum {
+                    @include ellipsis(360px);
+                }
+            }
+        }
+
+    }
+
+    .order-button {
+        text-align     : center;
+        display        : flex;
+        align-items    : center;
+        justify-content: space-around;
+        @include font(32px, #ffffff, 500, 84px);
+        margin-top    : 58px;
+        padding-bottom: 20px;
+        box-sizing    : border-box;
+
+        .cancelOrder {
+            @include width(250px, 84px);
+            color          : #CAAB73;
+            background     : url(../../assets/images/culture-gather/quxiao.png) no-repeat;
+            background-size: contain;
+
+            &.width-cancelOrder {
+                color     : #fff;
+                width     : 408px;
+                height    : 80px;
+                background: url(../../assets/images/tiangong/goback.png) no-repeat;
+            }
+        }
+
+        .payOrder {
+            @include width(250px, 84px);
+            color          : #fff;
+            background     : url(../../assets/images/culture-gather/hq_btn.png) no-repeat;
+            background-size: contain;
+        }
+    }
+
+    .userinfo-avatar-round {
+        width           : 200px;
+        height          : 200px;
+        position        : relative;
+        border-radius   : 50%;
+        background-color: #040405;
+        display         : flex;
+        justify-content : center;
+        align-items     : center;
+        flex-direction  : column;
+        margin-bottom   : 24px;
+    }
+
+    .userinfo-avatar-round::after {
+        content      : "";
+        display      : block;
+        position     : absolute;
+        top          : -4px;
+        right        : -4px;
+        bottom       : -4px;
+        left         : -4px;
+        border-radius: 50%;
+        background   : linear-gradient(42deg, #2873ff, #0ce897);
+        z-index      : -1;
+    }
+}

@@ -1,0 +1,4 @@
+# ESLint 忽略文件列表
+build/*.js
+config/*.js
+src/assets

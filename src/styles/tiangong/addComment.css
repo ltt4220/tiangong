@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.add-comment-box {
+  background: #000000;
+  backdrop-filter: blur(8px);
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.add-comment-box .title {
+  text-align: center;
+  padding: 54px 0 66px;
+  font-size: 36px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  color: #FFFFFF;
+}
+
+.add-comment-box .comment-cont {
+  width: 100%;
+  padding-top: 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.add-comment-box .comment-cont img {
+  flex: 0 0 72px;
+  height: 72px;
+  border-radius: 50%;
+  width: 72px;
+}
+
+.add-comment-box .comment-cont .right-box {
+  flex: auto;
+  margin-left: 34px;
+}
+
+.add-comment-box .comment-cont .right-box .info-box {
+  font-size: 28px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #cccccc;
+  line-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 14px;
+}
+
+.add-comment-box .comment-cont .right-box .info-body {
+  margin-top: 12px;
+  font-size: 30px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 42px;
+}
+
+.add-comment-box textarea {
+  width: 100%;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 30px 34px;
+  box-sizing: border-box;
+  font-size: 30px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 48px;
+  border: none;
+  outline: none;
+}
+
+.add-comment-box textarea ::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.add-comment-box .foot-box {
+  margin-top: 62px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-comment-box .foot-box button {
+  width: 250px;
+  height: 80px;
+  outline: none;
+  border: none;
+  font-size: 32px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.add-comment-box .foot-box button.canle {
+  margin-right: 60px;
+  color: #CAAB73;
+  background: url(../../assets/images/culture-gather/quxiao.png) no-repeat;
+  background-size: contain;
+}
+
+.add-comment-box .foot-box button.comipte {
+  color: #fff;
+  background: url(../../assets/images/culture-gather/hq_btn.png) no-repeat;
+  background-size: contain;
+}

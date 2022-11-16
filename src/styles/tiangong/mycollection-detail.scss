@@ -1,0 +1,689 @@
+@mixin font($fontSize, $colors, $fontWeight, $lineHeight) {
+    font-size  : $fontSize;
+    color      : $colors;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+}
+
+@mixin between($justifyContent) {
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: $justifyContent;
+}
+
+@mixin width($width, $height) {
+    width : $width;
+    height: $height;
+}
+
+@mixin ellipsis($width) {
+    width        : $width;
+    overflow     : hidden;
+    white-space  : nowrap;
+    text-overflow: ellipsis;
+}
+
+$color:#caa566;
+
+.mycollection-detail-box {
+    width     : 100%;
+    min-height: 100vh;
+    background: linear-gradient(225deg, #121115 0%, #000000 100%);
+    position  : relative;
+
+    .collection-common-borderBottom {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .mycollection-detail-banner {
+        @include width(100%, auto);
+        position: relative;
+
+        .head-box {
+            position  : absolute;
+            left      : 0;
+            top       : 0;
+            z-index   : 10;
+            padding   : 40px 20px;
+            box-sizing: border-box;
+
+            i {
+                font-size: 56px;
+                color    : #fff;
+            }
+        }
+
+        .three-box {
+            position        : relative;
+            height          : calc(100vh - 600px);
+            background-color: #000;
+
+            #marmosetUI {
+                position: relative;
+
+                div {
+                    &:nth-last-of-type(3) {
+                        display: none;
+                    }
+
+                    &:last-of-type {
+                        div {
+                            display: none;
+                        }
+                    }
+                }
+
+                text {
+                    display: none;
+                }
+            }
+        }
+
+        .loading-common {
+            position : absolute;
+            left     : 50%;
+            top      : 50%;
+            transform: translate(-50%);
+            width    : 100px;
+            height   : 100px;
+        }
+
+        .img2 {
+            position: absolute;
+            right   : 30px;
+            bottom  : 38px;
+        }
+
+        .info-body {
+            width   : 100%;
+            position: absolute;
+            left    : 0;
+            bottom  : 0px;
+            z-index : 1;
+            height  : 300px;
+
+            &.isBackground {
+                display        : flex;
+                align-items    : flex-end;
+                justify-content: center;
+                box-sizing     : border-box;
+                padding-bottom : 40px;
+
+                // background: url(../../assets/images/tiangong/zhantaismall.png) no-repeat center top;
+                // background-size: 100%;
+                .icon-fangda {
+                    font-size: 48px;
+                    color    : #fff;
+                }
+            }
+
+        }
+    }
+
+    .mycollection-detail-info {
+        padding   : 20px 40px 200px 42px;
+        box-sizing: border-box;
+        position  : relative;
+        width     : 100%;
+
+        .info-title {
+            @include font(40px, #ffffff, 400, 54px);
+            margin-bottom: 28px;
+        }
+
+        .info-item-content {
+            @include between(space-between);
+            margin-bottom: 46px;
+        }
+
+        .item-content-left {
+            position : relative;
+            min-width: 284px;
+            height   : 40px;
+            @include font(22px, #ffffff, 500, 41px);
+            background     : url(../../assets/images/tiangong/bg1.png) no-repeat;
+            background-size: contain;
+            padding        : 0 18px;
+            box-sizing     : border-box;
+
+            &.no-item-content-box {
+                background : none;
+                font-size  : 28px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color      : #CAA566;
+                line-height: 40px;
+            }
+        }
+
+        .desc-item-container {
+            @include between(space-between);
+            padding-top   : 30px;
+            padding-bottom: 28px;
+            box-sizing    : border-box;
+        }
+
+        .desc-item-label {
+            @include font(28px, rgba(255, 255, 255, 0.7), 400, 40px);
+            display        : flex;
+            justify-content: space-between;
+            flex           : 1;
+
+            i {
+                font-style : normal;
+                font-size  : 32px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color      : $color;
+            }
+        }
+
+        .desc-item-content {
+            @include font(36px, #ffffff, 500, 48px);
+
+            span {
+                margin-right                   : 10px;
+                @include font(28px, rgba($color:#fff, $alpha:0.5), 500, 48px);
+            }
+        }
+
+        .desc-hash-content {
+            padding-top   : 32px;
+            padding-bottom: 38px;
+            box-sizing    : border-box;
+        }
+
+        .desc-hash {
+            @include width(100%, auto);
+            margin-top: 30px;
+
+            .info-box-text {
+                font-size  : 28px;
+                font-family: PingFangSC-Medium, PingFang SC;
+                font-weight: 500;
+                color      : #FFFFFF;
+                line-height: 48px;
+            }
+
+            .hash-box {
+                margin-top   : 14px;
+                font-size    : 32px;
+                font-weight  : 600;
+                line-height  : 44px;
+                white-space  : normal;
+                word-break   : break-all;
+                word-wrap    : break-word;
+                border-radius: 32px;
+                padding      : 28px 26px;
+                box-sizing   : border-box;
+                background   : #141414;
+
+                .desc-hash-words {
+                    display                : inline-block;
+                    background             : linear-gradient(to right, #E1BF81, #A16F39);
+                    -webkit-background-clip: text;
+                    color                  : transparent;
+                }
+            }
+
+
+        }
+
+        .foot-box {
+            width: 100%;
+            @include between(center);
+            margin-top: 36px;
+
+            button {
+                color     : $color;
+                font-size : 32px;
+                outline   : none;
+                border    : none;
+                width     : 250px;
+                height    : 84px;
+                background: url(../../assets/images/culture-gather/quxiao.png) no-repeat;
+            }
+        }
+
+        .mycollection-certified {
+            position: relative;
+        }
+
+        .mycollection-tips {
+            @include font(28px, #666666, 400, 40px);
+            margin-top: 68px;
+        }
+
+        .icon-certified {
+            position: absolute;
+            top     : 50px;
+            right   : 0px;
+        }
+    }
+
+    .mycollection-footer {
+        @include between(space-between);
+        @include width(100%, 98px);
+        background-color: #222323;
+        position        : fixed;
+        bottom          : 0;
+        left            : 0;
+        z-index         : 13;
+        align-items     : center;
+
+        .footer-item {
+            flex           : 1;
+            display        : flex;
+            justify-content: center;
+            text-align     : center;
+            align-items    : center;
+            @include font(30px, #ffffff, 500, initial);
+        }
+
+        .icon-certificate {
+            margin-right: 24px;
+            font-size   : 38px;
+        }
+    }
+
+    .tips-download {
+        position: fixed;
+        top     : 0px;
+        left    : 0px;
+        z-index : 9999;
+        @include width(100%, 100%);
+    }
+
+    // 弹出框
+    .van-popup {
+        background: #000;
+        max-height: 100vh;
+
+        //转赠
+        &.book-container {
+            .van-action-sheet__header {
+                text-align : center;
+                font-weight: 400;
+                position   : relative;
+                padding-top: 250px;
+                @include font (40px, #ffffff, 500, auto);
+
+                .van-action-sheet__close {
+                    font-size: 52px;
+                    right    : 44px;
+                    width    : 70px;
+                    height   : 70px;
+                    top      : 52px;
+                }
+            }
+
+            .icon-warning {
+                font-size    : 112px;
+                color        : #F93E5F;
+                margin-bottom: 44px;
+                position     : absolute;
+                left         : 50%;
+                top          : 76px;
+                transform    : translateX(-50%);
+            }
+
+            .desc-book-container {
+                padding   : 48px 44px;
+                box-sizing: border-box;
+                height    : auto;
+
+                .info-text-book {
+                    text-align: center;
+                    @include font (32px, #fff, 400, auto);
+                    padding   : 0 44px;
+                    box-sizing: border-box;
+
+                    &.info-bottom {
+                        margin: 14px 0;
+                    }
+
+                    span {
+                        color : #D8B77B;
+                        margin: 0 8px;
+                    }
+                }
+
+                .brand-desc-book {
+                    margin-top: 66px;
+
+                    li {
+                        padding-left                    : 26px;
+                        box-sizing                      : border-box;
+                        @include font (26px, rgba($color:#fff, $alpha:.7), 400, 40px);
+                        position                        : relative;
+                        margin-bottom                   : 30px;
+                        text-align                      : justify;
+
+                        &::before {
+                            content      : '';
+                            display      : block;
+                            position     : absolute;
+                            left         : 0;
+                            top          : 18px;
+                            width        : 10px;
+                            height       : 10px;
+                            border-radius: 50%;
+                            background   : #8B8B8C;
+                        }
+                    }
+
+                    .mycollent-btn {
+                        width          : 100%;
+                        display        : flex;
+                        align-items    : center;
+                        justify-content: center;
+                        padding-top    : 84px;
+                        flex-direction : column;
+
+                        button {
+                            width     : 408px;
+                            height    : 80px;
+                            background: url(../../assets/images/tiangong/goback.png) no-repeat;
+                            border    : none;
+                            outline   : none;
+                            @include font(32px, #fff, normal, 50px);
+                        }
+
+                        p {
+                            margin-top: 32px;
+                            @include font(28px, #fff, 400, 40px);
+                        }
+                    }
+                }
+            }
+        }
+
+        //证书
+        &.brand-desc-height {
+            .van-action-sheet__header {
+                text-align : center;
+                font-weight: 400;
+                position   : relative;
+                padding-top: 52px;
+                @include font (40px, #ffffff, 500, auto);
+
+                .van-action-sheet__close {
+                    font-size: 52px;
+                    right    : 44px;
+                    width    : 70px;
+                    height   : 70px;
+                    top      : 52px;
+                }
+            }
+
+            .van-action-sheet__content {
+                height    : calc(100% - 217px);
+                overflow  : auto;
+                margin-top: 52px;
+            }
+
+            &.batch-desc-box {
+
+                .van-action-sheet__content {
+                    margin-top    : 16px;
+                    padding-bottom: 157px;
+                    position      : relative;
+                    overflow      : initial;
+                    box-sizing: border-box;
+                }
+
+                .brand-desc-myCollect {
+                    padding-bottom: 0;
+                    
+                    .info-batch-cont {
+                        height: 100%;
+                        position: relative;
+                        height        :calc(100vh - 390px);
+                        overflow: hidden;
+                        padding-top: 146px;
+                        box-sizing: border-box;
+                    }
+
+                    .brand-desc-content {
+                        &.no-bottom-content {
+                            padding-bottom: 0;
+                            height: 100%;
+                            overflow-y: auto;
+                        }
+                    }
+                }
+
+                .submit-box-batch {
+                    width          : 100%;
+                    display        : flex;
+                    justify-content: center;
+                    padding-top    : 25px;
+                    padding-bottom : 52px;
+                    position       : fixed;
+                    bottom         : 0;
+                    left           : 0;
+                    background     : #000;
+
+                    button {
+                        @include font (36px, #ffffff, 500, auto);
+                        width     : 404px;
+                        height    : 80px;
+                        border    : none;
+                        outline   : none;
+                        background: url(../../assets/images/tiangong/goback.png) no-repeat;
+                    }
+                }
+            }
+
+            .brand-desc-myCollect {
+                width         : 100%;
+                padding-bottom: 52px;
+                box-sizing    : border-box;
+                background    : #000;
+                height        : auto;
+
+                .info-text-box {
+                    @include font (32px, #fff, 400, auto);
+                    padding   : 0 44px;
+                    box-sizing: border-box;
+
+                    &.info-bottom {
+                        margin: 14px 0;
+                    }
+
+                    span {
+                        color : #D8B77B;
+                        margin: 0 8px;
+                    }
+                }
+
+                .info-batch-head {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    .info-batch-book {
+                        width: 100%;
+                        text-align: center;
+                        @include font (32px, #fff, 400, auto);
+                    }
+
+                    .info-batch-box {
+                        width          : 100%;
+                        display        : flex;
+                        justify-content: space-between;
+                        align-items    : center;
+                        padding        : 40px 40px 26px;
+                        box-sizing     : border-box;
+                        @include font (28px, #fff, 400, 38px);
+
+                        span {
+                            &.batch-left {
+                                padding-left: 38px;
+                                box-sizing  : border-box;
+                                display     : flex;
+                                align-items : center;
+
+                                i {
+                                    font-size   : 32px;
+                                    margin-right: 12px;
+
+                                    &.select-icon {
+                                        width          : 36px;
+                                        display        : flex;
+                                        height         : 36px;
+                                        border         : 4px solid #979797;
+                                        border-radius  : 50%;
+                                        box-sizing     : border-box;
+                                        align-items    : center;
+                                        justify-content: center;
+
+                                        &.icon-duigou {
+                                            border-color: $color;
+                                            color       : $color;
+                                            font-size   : 24px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.batch-right {
+                                padding-right: 50px;
+                                box-sizing   : border-box;
+
+                                i {
+                                    margin    : 0 12px;
+                                    font-style: normal;
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+                .brand-desc-content {
+                    margin-top: 66px;
+                    padding   : 0 44px 98px;
+                    box-sizing: border-box;
+
+                    &.no-bottom-content {
+                        margin-top: 0;
+
+                        li {
+                            &.transfer-item {
+
+                                p {
+                                    span {
+                                        opacity: 0.7;
+
+                                        &.load {
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
+                            }
+
+                            p {
+                                width         : calc(100% - 50px);
+                                display       : flex;
+                                flex-direction: column;
+
+                                span {
+                                    display: inline-block;
+
+                                    &.load {
+                                        margin-left: 100px;
+                                        color      : $color;
+
+                                        &.active {
+                                            color: #27DD81;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    li {
+                        padding   : 38px 34px 42px;
+                        box-sizing: border-box;
+                        @include font (30px, #fff, 400, 48px);
+                        display        : flex;
+                        align-items    : center;
+                        justify-content: space-between;
+                        background     : #222222;
+                        border-radius  : 32px;
+                        margin-bottom  : 20px;
+                        opacity        : 1;
+
+                        &.transfer-item {
+                            opacity: 0.7;
+                        }
+
+                        i {
+                            font-size: 32px;
+
+                            &.select-icon {
+                                width          : 36px;
+                                display        : flex;
+                                height         : 36px;
+                                border         : 4px solid #979797;
+                                border-radius  : 50%;
+                                box-sizing     : border-box;
+                                align-items    : center;
+                                justify-content: center;
+
+                                &.icon-duigou {
+                                    border-color: $color;
+                                    color       : $color;
+                                    font-size   : 24px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                .block-link-content {
+                    padding   : 0 30px;
+                    box-sizing: border-box;
+
+                    li {
+                        margin-bottom: 28px;
+
+                        .info-text-box {
+                            padding: 0;
+                        }
+
+                        .info-code {
+                            background   : #222222;
+                            border-radius: 32px;
+                            padding      : 28px 16px;
+                            box-sizing   : border-box;
+                            display      : flex;
+                            flex-wrap    : wrap;
+                            word-break   : break-all;
+
+                            p {
+                                width                  : 100%;
+                                height                 : 88px;
+                                font-size              : 32px;
+                                font-family            : PingFangSC-Semibold, PingFang SC;
+                                font-weight            : 600;
+                                color                  : #27DD81;
+                                line-height            : 44px;
+                                background             : linear-gradient(137deg, #E1BF81 0%, #A16F39 100%);
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                overflow               : hidden;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+
+}

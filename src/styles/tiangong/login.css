@@ -1,0 +1,261 @@
+img {
+  object-fit: cover;
+}
+
+.login-box {
+  position: relative;
+  min-height: 100vh;
+  padding: 80px 76px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-box::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 16px;
+  width: 266px;
+  height: 446px;
+  background: url(../../assets/images/culture-gather/login-bgc.png) no-repeat right center;
+  background-size: 100%;
+  z-index: 0;
+}
+
+.login-box .login-mode {
+  font-size: 56px;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 80px;
+  margin-bottom: 64px;
+  padding-left: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.login-box .login-mode img {
+  margin-bottom: 46px;
+}
+
+.login-box .login-sms {
+  width: 100%;
+}
+
+.login-box .login-sms .sms-form {
+  margin-bottom: 60px;
+}
+
+.login-box .login-sms .sms-form.no-bottom {
+  margin-bottom: 0;
+}
+
+.login-box .login-sms .form-item {
+  position: relative;
+}
+
+.login-box .login-sms .input-text {
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  padding: 48px 0px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 36px;
+  color: white;
+  font-weight: 500;
+  line-height: 50px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.login-box .login-sms .input-text.input-captcha {
+  border-bottom: none;
+  line-height: 105px;
+  padding: 40px 0 0;
+}
+
+.login-box .login-sms .input-phone {
+  padding: 32px 0px;
+}
+
+.login-box .login-sms .input-code {
+  padding: 66px 0px;
+}
+
+.login-box .login-sms ::placeholder {
+  font-size: 36px;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 500;
+  line-height: 50px;
+}
+
+.login-box .login-sms input {
+  font-size: 36px;
+  color: white;
+  font-weight: 500;
+  line-height: 50px;
+}
+
+.login-box .login-sms input:-internal-autofill-previewed, .login-box .login-sms input:-internal-autofill-selected, .login-box .login-sms input:-webkit-autofill::first-line {
+  font-size: 34px;
+  -webkit-text-fill-color: #808080;
+  transition: background-color 1000s ease-out 0.5s;
+}
+
+.login-box .login-sms .code-box {
+  position: absolute;
+  right: 0px;
+  top: 22px;
+}
+
+.login-box .login-sms .change-code {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 24px;
+  text-align: center;
+}
+
+.login-box .login-sms .code-img {
+  margin-top: 12px;
+  display: block;
+  width: 180px;
+  height: 62px;
+  cursor: pointer;
+}
+
+.login-box .login-sms .get-code {
+  position: absolute;
+  right: 0px;
+  bottom: 12px;
+  text-align: center;
+  width: 280px;
+  height: 96px;
+  border-radius: 48px;
+  box-sizing: border-box;
+  font-size: 32px;
+  color: #fff;
+  font-weight: 500;
+  line-height: 96px;
+  background: linear-gradient(135deg, #0043fe 0%, #34f091 100%);
+}
+
+.login-box .login-sms .info-lable {
+  font-size: 28px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 40px;
+  margin: 32px 0 90px;
+  padding-left: 6px;
+  box-sizing: border-box;
+}
+
+.login-box .login-sms .sms-button {
+  width: 100%;
+  height: 96px;
+  font-size: 32px;
+  color: #1B1B1B;
+  font-weight: 500;
+  line-height: 96px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #0043FE 0%, #34F091 100%);
+  border-radius: 48px;
+  margin-bottom: 56px;
+  position: relative;
+  opacity: 0.4;
+}
+
+.login-box .login-sms .sms-button.sms-button-show {
+  opacity: 1;
+  color: #fff;
+}
+
+.login-box .login-sms .sms-button::before {
+  content: "";
+  width: 90%;
+  height: 65px;
+  border-radius: 48px;
+  display: block;
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  background: linear-gradient(135deg, #0043FE 0%, #34F091 100%);
+  filter: blur(24px);
+  background-size: 100%;
+  z-index: -1;
+}
+
+.login-box .login-sms .van-checkbox {
+  height: 56px;
+  font-size: 26px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  line-height: 40px;
+}
+
+.login-box .login-sms .van-checkbox .van-checkbox__icon.van-checkbox__icon--checked .van-icon {
+  color: #27DD81;
+  background-color: transparent;
+}
+
+.login-box .login-sms .van-checkbox .van-checkbox__label {
+  margin-left: 16px;
+  color: #666;
+}
+
+.login-box .login-sms .van-checkbox .van-checkbox__label span {
+  color: #fff;
+}
+
+.login-box .login-sms .van-checkbox .van-icon {
+  border: 3px solid #fff;
+}
+
+.login-box .password-login button {
+  outline: none;
+  height: 96px;
+  line-height: 96px;
+  border-radius: 48px;
+  text-align: center;
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.login-box .password-login.duanxin button {
+  border: none;
+  width: 334px;
+  background: linear-gradient(135deg, #0043FE 0%, #34F091 100%);
+}
+
+.login-box .password-login.zhanghao {
+  background: linear-gradient(135deg, #0043FE 0%, #34F091 100%);
+  padding: 2px;
+  box-sizing: border-box;
+  border-radius: 48px;
+  width: 400px;
+}
+
+.login-box .password-login.zhanghao button {
+  background: #121115 url(../../assets/images/culture-gather/smalllog.png) 40px 30px no-repeat;
+  background-size: 60px 32px;
+  box-sizing: border-box;
+  width: 100%;
+  border: 2px solid transparent;
+  padding-left: 72px;
+}

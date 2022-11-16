@@ -1,0 +1,559 @@
+@mixin font($fontSize, $color, $fontWeight, $lineHeight) {
+    font-size  : $fontSize;
+    color      : $color;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+}
+
+@mixin between($justifyContent, $alignItem) {
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: $justifyContent;
+    align-items    : $alignItem;
+}
+
+@mixin width($width, $height) {
+    width : $width;
+    height: $height;
+}
+
+@mixin ellipsis($width) {
+    width        : $width;
+    overflow     : hidden;
+    white-space  : nowrap;
+    text-overflow: ellipsis;
+}
+
+img {
+    object-fit: cover;
+}
+
+$color:#647EFF;
+
+.login-box {
+    position       : relative;
+    min-height     : 100vh;
+    padding        : 80px 76px;
+    box-sizing     : border-box;
+    display        : flex;
+    flex-direction : column;
+    justify-content: space-between;
+    align-items    : flex-end;
+    background     : url(../../assets/images/culture-gather/bg_login.png) no-repeat center;
+    background-size: cover;
+
+    &.box-account {
+        background: transparent;
+
+        &::before {
+            content   : '';
+            display   : block;
+            position  : absolute;
+            left      : 0;
+            top       : 0;
+            width     : 100%;
+            height    : 100%;
+            background: linear-gradient(125deg, rgba($color:#121115, $alpha:0.95) 0%, rgba($color:#000, $alpha:0.95) 100%);
+            opacity   : 0.95;
+            z-index   : -1;
+            transition: all 0.5s;
+        }
+
+        &::after {
+            content : "";
+            display : block;
+            position: absolute;
+            right   : 0;
+            bottom  : 120px;
+            @include width(434px, 356px);
+            background     : url(../../assets/images/tiangong/fill-samll.png) no-repeat right center;
+            background-size: 100%;
+            z-index        : 0;
+            pointer-events : none
+        }
+
+        .pop-box {
+            background         : linear-gradient(224deg, #33EC94 0%, #0147FB 100%);
+            position           : absolute;
+            left               : 0;
+            top                : 0;
+            z-index            : -2;
+            width              : 100%;
+            height             : 100%;
+            background-size    : cover;
+            background-position: center;
+        }
+    }
+
+    &.box-noaccount {
+        background: transparent;
+    }
+
+    .zhanghao-box-content {
+        width: 100%;
+
+        .login-mode {
+            .log {
+                width        : 134px;
+                height       : 72px;
+                margin-bottom: 58px;
+                background   : url(../../assets/images/tiangong/zhanghao-logo.png) no-repeat;
+            }
+        }
+
+        .login-sms {
+            .sms-button {
+                @include width(100%, 96px);
+                @include font(32px, #1B1B1B, 500, 96px);
+                @include between(center, center);
+                text-align   : center;
+                background   : linear-gradient(135deg, #0043FE 0%, #34F091 100%);
+                border-radius: 48px;
+                margin-bottom: 56px;
+                position     : relative;
+                opacity      : 0.4;
+
+                span {
+                    color                  : #1B1B1B;
+                    background             : transparent;
+                    -webkit-text-fill-color: #1B1B1B;
+                }
+
+                &.sms-button-show {
+                    opacity: 1;
+
+                    span {
+                        -webkit-text-fill-color: #fff;
+                        color                  : #fff;
+                    }
+
+                }
+
+                &::before {
+                    content        : "";
+                    width          : 90%;
+                    height         : 65px;
+                    border-radius  : 48px;
+                    display        : block;
+                    position       : absolute;
+                    top            : 32px;
+                    left           : 50%;
+                    transform      : translate(-50%, 0%);
+                    background     : linear-gradient(135deg, #0043FE 0%, #34F091 100%);
+                    filter         : blur(24px);
+                    background-size: 100%;
+                    z-index        : -1;
+                }
+            }
+
+            .van-checkbox {
+                padding-top: 0;
+
+                .van-checkbox__label {
+                    span {
+                        color: $color;
+                    }
+                }
+            }
+            .form-item{
+                &.form-item-userName {
+                    span {
+                        color: $color;
+                    }
+    
+                    .input-text {
+                        color: $color;
+                    }
+                }
+            }
+            
+        }
+    }
+
+    .phone-box-content {
+        width: 100%;
+
+        .login-mode {
+            .log {
+                &.vip {
+                    width              : 100%;
+                    padding-left       : 96px;
+                    box-sizing         : border-box;
+                    display            : flex;
+                    align-items        : center;
+                    background-size    : 140px 140px;
+                    background-position: left center;
+
+                    img {
+                        width      : auto;
+                        height     : 70%;
+                        margin-top : 20px;
+                        margin-left: 45px;
+                    }
+                }
+
+                margin-bottom  : 26px;
+                width          : 160px;
+                height         : 160px;
+                background     : url(../../assets/images/tiangong/phone-logo.png) no-repeat;
+                background-size: cover;
+            }
+        }
+
+        .login-sms {
+            padding-bottom: 40px;
+        }
+    }
+
+    .login-mode {
+        @include font(56px, #ffffff, 600, 80px);
+        margin-bottom: 64px;
+        @include between(flex-start, flex-start);
+        flex-direction: column;
+    }
+
+    // 短信验证码登录
+    .login-sms {
+        width: 100%;
+
+
+        .sms-form {
+            margin-bottom: 60px;
+
+            &.no-bottom {
+                margin-bottom: 0;
+            }
+        }
+
+        .form-item {
+            position: relative;
+
+            &.form-item-userName {
+                display        : flex;
+                align-items    : center;
+                justify-content: space-between;
+                width          : 100%;
+
+                span {
+                    padding-top: 48px;
+                    display    : inline-block;
+                    @include font(36px, #E1BF81, 500, 50px);
+
+                }
+
+                .input-text {
+                    width         : calc(100% - 160px);
+                    border-bottom : none;
+                    padding-bottom: 0;
+                    color         : #E1BF81;
+                }
+            }
+        }
+
+        .input-text {
+            display           : block;
+            width             : 100%;
+            line-height       : 60px;
+            padding           : 48px 0px;
+            box-sizing        : border-box;
+            -webkit-box-sizing: border-box;
+            @include font(36px, rgba(255, 255, 255, 1), 500, 50px);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            position     : relative;
+
+            &.input-captcha {
+                border-bottom: none;
+                line-height  : 105px;
+                padding      : 40px 0 0;
+            }
+        }
+
+
+        .input-phone {
+            padding: 32px 0px;
+        }
+
+        .input-code {
+            padding: 66px 0px;
+        }
+
+        ::placeholder {
+            @include font(36px, rgba(255, 255, 255, 0.3), 500, 50px);
+        }
+
+        input {
+            @include font(36px, rgba(255, 255, 255, 1), 500, 50px);
+
+            &:-internal-autofill-previewed,
+            &:-internal-autofill-selected,
+            &:-webkit-autofill::first-line {
+                font-size              : 34px;
+                -webkit-text-fill-color: #808080;
+                transition             : background-color 1000s ease-out 0.5s;
+            }
+        }
+
+
+        .code-box {
+            position: absolute;
+            right   : 0px;
+            top     : 22px;
+        }
+
+        .change-code {
+
+            color     : #ccc;
+            font-size : 26px;
+            text-align: center;
+        }
+
+        .code-img {
+            display: block;
+            width  : 200px;
+            height : 80px;
+            cursor : pointer;
+        }
+
+        .get-code {
+            position  : absolute;
+            right     : 0px;
+            bottom    : 22px;
+            text-align: center;
+            width     : 247px;
+            height    : 80px;
+            box-sizing: border-box;
+            @include font(32px, #fff, 500, 80px);
+            background: url(../../assets/images/culture-gather/hq_btn.png) no-repeat;
+        }
+
+        .info-lable {
+            font-size   : 28px;
+            font-family : PingFangSC-Regular, PingFang SC;
+            font-weight : 400;
+            color       : rgba($color: #fff, $alpha: 0.5);
+            line-height : 40px;
+            margin      : 32px 0 90px;
+            padding-left: 6px;
+            box-sizing  : border-box;
+        }
+
+        .sms-button {
+            @include width(100%, 82px);
+            margin-top     : 10px;
+            text-align     : center;
+            line-height    : 82px;
+            background     : url(../../assets/images/tiangong/submit_btn.png) no-repeat center;
+            background-size: 564px 82px;
+
+            span {
+                font-size              : 36px;
+                font-weight            : bold;
+                color                  : #27DD81;
+                background             : linear-gradient(137deg, #f3dfb9 0%, #ffc275 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                letter-spacing         : 4px;
+            }
+
+            &.overseas-button {
+                @include width(100%, 96px);
+                line-height   : 96px;
+                background    : linear-gradient(137deg, #E1BF81 0%, #A16F39 100%);
+                border-radius : 48px;
+                opacity       : 0.4;
+                color         : #fff;
+                font-size     : 32px;
+                font-weight   : bold;
+                letter-spacing: 4px;
+            }
+
+            &.sms-button-show {
+                opacity: 1;
+                color  : #fff;
+            }
+        }
+
+        .van-checkbox {
+            min-height : 56px;
+            font-size  : 26px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color      : #ccc;
+            line-height: 44px;
+            padding    : 30px 0 40px;
+            align-items: flex-start;
+
+            .van-checkbox__icon {
+                padding-top: 6px;
+
+                &.van-checkbox__icon--checked {
+                    .van-icon {
+                        color           : #D8B77B;
+                        background-color: transparent;
+                    }
+                }
+            }
+
+            .van-checkbox__label {
+                margin-left: 16px;
+                color      : #ccc;
+                line-height: 44px;
+
+                span {
+                    color: #D8B77B;
+                }
+            }
+
+            .van-icon {
+                border: 3px solid #fff;
+            }
+        }
+
+
+    }
+
+    .password-login {
+        width          : 100%;
+        height         : 90px;
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+
+        button {
+            background: none;
+            border    : none;
+            outline   : none;
+            height    : 32px;
+            text-align: center;
+            @include font(32px, #D8B77B, 400, 32px);
+
+        }
+
+        &.duanxin {
+            background: none;
+
+            button {
+                background   : linear-gradient(135deg, #0043FE 0%, #34F091 100%);
+                border       : none;
+                width        : 334px;
+                border-radius: 48px;
+                height       : 96px;
+                text-align   : center;
+            }
+
+            &.overseas-button {
+                button {
+                    width        : 390px;
+                    height       : 96px;
+                    box-sizing   : border-box;
+                    border-radius: 48px;
+                    background   : transparent;
+                    border       : 2px solid #E1BF81;
+                }
+            }
+        }
+
+        &.zhanghao {
+            background: url(../../assets/images/culture-gather/why_btn.png) no-repeat center;
+
+            button {
+                background     : url(../../assets/images/culture-gather/smalllog2.png) 140px 0px no-repeat;
+                background-size: 60px 32px;
+                box-sizing     : border-box;
+                width          : 100%;
+                padding-left   : 72px;
+            }
+
+            &.haiwaiAccount {
+                margin-bottom: 20px;
+
+                button {
+                    background  : none;
+                    padding-left: 0;
+                }
+            }
+        }
+
+    }
+}
+
+// 弹出框
+.brand-desc {
+    width     : 100%;
+    position  : fixed;
+    left      : 0px;
+    padding   : 84px 40px 152px;
+    box-sizing: border-box;
+    background: rgba($color:#000, $alpha:1);
+    z-index   : 10;
+    bottom    : -100%;
+    box-sizing: border-box;
+
+    &.animation-desc {
+        animation: descHeight 0.5s linear both;
+
+        @keyframes descHeight {
+            from {
+                bottom: -100%;
+                height: 0;
+            }
+
+            to {
+                bottom: 0px;
+                height: 744px;
+            }
+        }
+    }
+
+    &.close-brand-desc {
+        animation: closeHeight 0.5s linear both;
+
+        @keyframes closeHeight {
+            from {
+                bottom: 0px;
+                height: 744px;
+
+            }
+
+            to {
+                height: 0;
+                bottom: -100%;
+            }
+        }
+    }
+
+    .brand-desc-header {
+        text-align   : center;
+        position     : relative;
+        margin-bottom: 96px;
+        @include font (36px, #ffffff, 500, 32px);
+
+        .brand-desc-headerbtn {
+            position: absolute;
+            top     : 0px;
+            right   : 4px;
+
+            i {
+                font-size: 36px;
+            }
+        }
+    }
+
+    .info-text {
+        margin-bottom  : 32px;
+        padding        : 0px 44px;
+        box-sizing     : border-box;
+        height         : 128px;
+        background     : #222222;
+        border-radius  : 32px;
+        display        : flex;
+        align-items    : center;
+        justify-content: space-between;
+        @include font (36px, #fff, 500, 128px);
+
+        i {
+            font-size: 36px;
+            color    : rgba($color:#fff, $alpha:0.7)
+        }
+    }
+}
